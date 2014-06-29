@@ -45,7 +45,29 @@
 			}else{
 				return $Conteudo = $this->CarregaHtml('404');
 			}
-		} 
+		}
+
+		#abre a sessao
+		function IniciaSessao($usuario){
+			session_start('login');
+			$_SESSION['usuario'] = $usuario;
+		}
+
+		#fecha sessao
+		function FechaSessao(){
+			session_start('login');
+			$_SESSION = array();
+			session_destroy();
+		}
+
+		function VerificaSessao(){
+			session_start('login');
+			if( isset($_SESSION['usuario']) ){
+				return true;
+			}else{
+				return false;
+			}
+		}
 		
 		#Busca a pagina e verifica se existe
 		function BuscaPagina(){
