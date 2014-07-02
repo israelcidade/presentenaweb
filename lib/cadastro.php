@@ -36,6 +36,9 @@
 				$msg = "Usuario ja cadastrado com esse Cpf";
 			}elseif($senha != $senha2){
 				$msgsenha = "Senhas Diferentes";
+			}else{
+				$Sql = "Insert into c_usuarios (nome,senha,cpf,email) VALUES ('".$nome."','".$senha."','".$cpf."','".$email."')";
+				$banco->Execute($Sql);
 			}
 		}
 	}
