@@ -9,7 +9,7 @@
 		$banco->RedirecionaPara('minha-conta');
 	}else{
 
-		#Trabalha com Post
+		#Trabalha com Post de Login
 		if( isset($_POST["acao"]) && $_POST["acao"] != '' ){
 		$usuario = strip_tags(trim(addslashes($_POST["usuario"])));
 		$senha = strip_tags(trim(addslashes($_POST["senha"])));
@@ -20,6 +20,17 @@
 				$banco->IniciaSessao($usuario);
 				$banco->RedirecionaPara('minha-conta');
 			}
+		}
+
+		#Trabalha com Post de Cadastro
+		if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'cadastro'){
+			$nome = strip_tags(trim(addslashes($_POST["nome"])));
+			$cpf = strip_tags(trim(addslashes($_POST["cpf"])));
+			$email = strip_tags(trim(addslashes($_POST["email"])));
+			$senha = strip_tags(trim(addslashes($_POST["senha"])));
+
+			
+
 		}
 	}
 
