@@ -5,6 +5,12 @@
 	#Instancia o objeto
 	$banco = new bancoconta();
 
-	#Imprimi valores
-	$Conteudo = $banco->CarregaHtml('minha-conta');
+	if($banco->VerificaSessao()){
+
+
+		#Imprimi valores
+		$Conteudo = $banco->CarregaHtml('minha-conta');
+	}else{
+		$banco->RedirecionaPara('inicio/acesso-negado');
+	}
 ?>
