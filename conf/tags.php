@@ -18,4 +18,7 @@
 	// tweak these values (in pixels)
 	define('MAX_WIDTH', 500);
 	define('MAX_HEIGHT', 500);
+
+	//Mensagens de Erro
+	define('MSG_ERRO_BANCO','Falha ao conectar no banco de dados, tente novamente mais tarde!');
 ?>
