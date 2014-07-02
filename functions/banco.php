@@ -133,10 +133,14 @@
 
 		#funcao imprime conteudo
 		function Imprime($Conteudo){
+			$deslogar = '';
+			$usuario = '';
 			$SaidaHtml = $this->CarregaHtml('modelo');
 			if($this->VerificaSessao()){
 				$deslogar = "<a href='".UrlPadrao."inicio/deslogar/' onClick=\"return confirm('Tem certeza que deseja deslogar ?')\" >Deslogar</a>";
+				$usuario = $_SESSION['usuario'];
 				$SaidaHtml = str_replace('<%SAIR%>',$deslogar,$SaidaHtml);
+				$SaidaHtml = str_replace('<%USUARIO%>',$usuario,$SaidaHtml);
 			}
 			$SaidaHtml = str_replace('<%CONTEUDO%>',$Conteudo,$SaidaHtml);
 			$SaidaHtml = str_replace('<%URLPADRAO%>',UrlPadrao,$SaidaHtml);
