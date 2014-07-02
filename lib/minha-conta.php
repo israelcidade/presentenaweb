@@ -7,7 +7,6 @@
 
 	if($banco->VerificaSessao()){
 
-
 		#Imprimi valores
 		$Conteudo = $banco->CarregaHtml('minha-conta');
 	}else{
