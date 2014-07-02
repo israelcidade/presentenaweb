@@ -13,14 +13,6 @@
 			}
 		}	
 		
-		#funcao imprime conteudo
-		function Imprime($Conteudo){
-			$SaidaHtml = $this->CarregaHtml('modelo');
-			$SaidaHtml = str_replace('<%CONTEUDO%>',$Conteudo,$SaidaHtml);
-			$SaidaHtml = str_replace('<%URLPADRAO%>',UrlPadrao,$SaidaHtml);
-			echo $SaidaHtml;
-		}
-		
 		#funcao que chama manutencao
 		function ChamaManutencao(){
 			$filename = 'html/manutencao.html';
@@ -61,7 +53,7 @@
 		}
 
 		function VerificaSessao(){
-			session_start('login');
+			//session_start('login');
 			if( isset($_SESSION['usuario']) ){
 				return true;
 			}else{
@@ -137,6 +129,18 @@
 					}
 				}
 			}
+		}
+
+		#funcao imprime conteudo
+		function Imprime($Conteudo){
+			$SaidaHtml = $this->CarregaHtml('modelo');
+			if($this->VerificaSessao()){
+				$deslogar = "<a href='".UrlPadrao."inicio/deslogar/' onClick=\"return confirm('Tem certeza que deseja deslogar ?')\" >Deslogar</a>";
+				$SaidaHtml = str_replace('<%SAIR%>',$deslogar,$SaidaHtml);
+			}
+			$SaidaHtml = str_replace('<%CONTEUDO%>',$Conteudo,$SaidaHtml);
+			$SaidaHtml = str_replace('<%URLPADRAO%>',UrlPadrao,$SaidaHtml);
+			echo $SaidaHtml;
 		}
 	}
 ?>

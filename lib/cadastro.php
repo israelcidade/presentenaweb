@@ -5,6 +5,19 @@
 	#Instancia o objeto
 	$banco = new bancocadastro();
 
+	#Trabalha com Post
+	if( isset($_POST["acao"]) && $_POST["acao"] != '' ){
+		$usuario = strip_tags(trim(addslashes($_POST["usuario"])));
+		$senha = strip_tags(trim(addslashes($_POST["senha"])));
+
+		$flag = $banco->BuscaUsuario($usuario,$senha);
+
+		if($flag){
+			$banco->IniciaSessao($usuario);
+			$banco->RedirecionaPara('minha-conta');
+		}
+	}
+
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('cadastro');
 ?>
