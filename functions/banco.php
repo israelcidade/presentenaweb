@@ -53,7 +53,7 @@
 		}
 
 		function VerificaSessao(){
-			//session_start('login');
+			session_start('login');
 			if( isset($_SESSION['usuario']) ){
 				return true;
 			}else{
