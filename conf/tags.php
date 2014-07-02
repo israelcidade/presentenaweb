@@ -21,4 +21,9 @@
 
 	//Mensagens de Erro
 	define('MSG_ERRO_BANCO','Falha ao conectar no banco de dados, tente novamente mais tarde!');
+	define('MSG_ERRO_CPF_EXISTENTE','Ja possuimos um cadastro com esse cpf');
+	define('MSG_ERRO_SENHA_DIFERENTE','Senhas diferentes');
+
+	//Mensagens de Ok
+	define('MSG_OK_USUARIO','Cadastro Realizado com Sucesso!');
 ?>

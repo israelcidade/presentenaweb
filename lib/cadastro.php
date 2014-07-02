@@ -6,6 +6,7 @@
 	$banco = new bancocadastro();
 
 	$msg = '';
+	$usuario = array();
 
 	if($banco->VerificaSessao()){
 		$banco->RedirecionaPara('minha-conta');
@@ -26,29 +27,20 @@
 
 		#Trabalha com Post de Cadastro
 		if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'cadastro'){
-			$nome = strip_tags(trim(addslashes($_POST["nome"])));
-			$cpf = strip_tags(trim(addslashes($_POST["cpf"])));
-			$email = strip_tags(trim(addslashes($_POST["email"])));
-			$senha = strip_tags(trim(addslashes($_POST["senha"])));
-			$senha2 = strip_tags(trim(addslashes($_POST["senha2"])));
+			$usuario['nome'] = strip_tags(trim(addslashes($_POST["nome"])));
+			$usuario['cpf'] = strip_tags(trim(addslashes($_POST["cpf"])));
+			$usuario['email'] = strip_tags(trim(addslashes($_POST["email"])));
+			$usuario['senha'] = strip_tags(trim(addslashes($_POST["senha"])));
+			$usuario['senha2'] = strip_tags(trim(addslashes($_POST["senha2"])));
 
-			if($banco->BuscaUsuarioPorCpf($cpf)){
-				$msg = "Usuario ja cadastrado com esse Cpf";
-			}elseif($senha != $senha2){
-				$msgsenha = "Senhas Diferentes";
-			}else{
-				$Sql = "Insert into c_usuarios (nome,senha,cpf,email) VALUES ('".$nome."','".$senha."','".$cpf."','".$email."')";
-				if($banco->Execute($Sql)){
-					$banco->RedirecionaPara('minha-conta');
-				}else{
-					$msg = MSG_ERRO_BANCO;
-				}
+			$msg = $banco->InsereUsuario($usuario);
+			if($msg = 'ok'){
+				$banco->RedirecionaPara('minha-conta/bem-vindo');
 			}
 		}
 	}
 
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('cadastro');
-	$Conteudo = str_replace('<%MSGUSUARIO%>', $msg, $Conteudo);
-	$Conteudo = str_replace('<%MSGSENHA%>', $msgsenha, $Conteudo);
+	$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);
 ?>
