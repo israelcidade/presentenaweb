@@ -12,8 +12,12 @@
 		$banco->RedirecionaPara('minha-conta');
 	}else{
 
+		if($this->PaginaAux[0] == "ativar"){
+			$msg = MSG_AVISO_ATIVAR;
+		}
+
 		#Trabalha com Post de Login
-		if( isset($_POST["acao"]) && $_POST["acao"] != '' ){
+		if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'login'){
 		$usuario = strip_tags(trim(addslashes($_POST["usuario"])));
 		$senha = strip_tags(trim(addslashes($_POST["senha"])));
 
@@ -34,8 +38,8 @@
 			$usuario['senha2'] = strip_tags(trim(addslashes($_POST["senha2"])));
 
 			$msg = $banco->InsereUsuario($usuario);
-			if($msg = 'ok'){
-				$banco->RedirecionaPara('minha-conta/bem-vindo');
+			if($msg == 'ok'){
+				$banco->RedirecionaPara('cadastro/ativar');
 			}
 		}
 	}

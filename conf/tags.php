@@ -26,4 +26,7 @@
 
 	//Mensagens de Ok
 	define('MSG_OK_USUARIO','Cadastro Realizado com Sucesso!');
+
+	//Mensagens de Avisos
+	define('MSG_AVISO_ATIVAR','Por Favor, ative sua conta antes de acessar!');
 ?>
