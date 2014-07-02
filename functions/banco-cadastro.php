@@ -8,5 +8,12 @@
 			return $num_rows;
 		}
 		
+		function BuscaUsuarioPorCpf($cpf){
+			$Sql = "Select * from c_usuarios where cpf = '".$cpf."' ";
+			$result = parent::Execute($Sql);
+			$num_rows = parent::Linha($result);
+			return $num_rows;
+		}
+
 	}
 ?>

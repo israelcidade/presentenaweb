@@ -5,6 +5,8 @@
 	#Instancia o objeto
 	$banco = new bancocadastro();
 
+	$msg = '';
+
 	if($banco->VerificaSessao()){
 		$banco->RedirecionaPara('minha-conta');
 	}else{
@@ -28,12 +30,18 @@
 			$cpf = strip_tags(trim(addslashes($_POST["cpf"])));
 			$email = strip_tags(trim(addslashes($_POST["email"])));
 			$senha = strip_tags(trim(addslashes($_POST["senha"])));
+			$senha2 = strip_tags(trim(addslashes($_POST["senha2"])));
 
-			
-
+			if($banco->BuscaUsuarioPorCpf($cpf)){
+				$msg = "Usuario ja cadastrado com esse Cpf";
+			}elseif($senha != $senha2){
+				$msgsenha = "Senhas Diferentes";
+			}
 		}
 	}
 
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('cadastro');
+	$Conteudo = str_replace('<%MSGUSUARIO%>', $msg, $Conteudo);
+	$Conteudo = str_replace('<%MSGSENHA%>', $msgsenha, $Conteudo);
 ?>
