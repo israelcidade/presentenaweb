@@ -12,6 +12,10 @@
 		$banco->RedirecionaPara('minha-conta');
 	}else{
 
+		if($this->PaginaAux[0] == "codigo"){
+			$codigo = $this->PaginaAux[1];
+		}
+
 		if($this->PaginaAux[0] == "ativar"){
 			$msg = MSG_AVISO_ATIVAR;
 		}

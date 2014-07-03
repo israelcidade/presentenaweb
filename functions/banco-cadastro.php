@@ -89,7 +89,7 @@
 			$mail->IsHTML(true);
 			$mail->Subject = "Bem-Vindo ao Presente Na Web";
 			$mail->Body = utf8_decode("
-				<a href='localhost/presentenaweb/cadastro/codigo/'>Ativar Conta</a>
+				<a href='localhost/presentenaweb/cadastro/codigo/$codigo'>Ativar Conta</a>
 			");
 	            
 	        // Validando a autenticação
