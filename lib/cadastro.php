@@ -11,7 +11,7 @@
 	if($banco->VerificaSessao()){
 		$banco->RedirecionaPara('minha-conta');
 	}else{
-
+		
 		if($this->PaginaAux[0] == "codigo"){
 			$codigo = $this->PaginaAux[1];
 			$msg = $banco->BuscaCodigo($codigo);
@@ -45,7 +45,6 @@
 
 			//Manda pra fncao o array usuario pra adicionar no Banco!
 			$msg = $banco->InsereUsuario($usuario);
-
 			if($msg == 'ok'){
 				$banco->RedirecionaPara('cadastro/ativar');
 			}
