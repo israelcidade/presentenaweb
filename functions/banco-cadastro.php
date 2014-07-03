@@ -37,8 +37,9 @@
 			}elseif(!parent::Execute($Sql)){
 				return MSG_ERRO_BANCO;
 			}else{
-				$codigo = $this->CriaCodigoAtivacao($usuario);
-				$flag = $this->DisparaEmailAtivador($usuario);
+				$codigo = $this->InsereCodigo($usuario);
+				die;
+				$flag = $this->DisparaEmailAtivador($usuario,$codigo);
 				if($flag == true){
 					return 'ok';
 				}else{
@@ -47,19 +48,34 @@
 			}
 		}
 
-		function CriaCodigoAtivacao($usuario){
+		function InsereCodigo($usuario){
 			$Sql = "Select idusuario from c_usuarios where email = '".$usuario['email']."'";
-			$codigo = parent::GeraCodigo(10,true,true,false);
+			$codigo = $this->CriaCodigoAtivacao();
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
 			if($num_rows){
 				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 				$idusuario = $rs['idusuario'];
+				$Sql2 = "Insert into c_codigos (idusuario,codigo) VALUES ('".$idusuario."','".$codigo."') ";
+				$result = parent::Execute($Sql2);
+				return $codigo;
 			}
-
 		}
 
-		function DisparaEmailAtivador($usuario){
+		function CriaCodigoAtivacao(){
+			while(){
+				$codigo = parent::GeraCodigo(10,true,true,false);
+				$Sql = "Select codigo from c_codigos where codigo = '".$codigo."'";
+				$result = parent::Execute($Sql);
+				$num_rows = parent::Linha($result);
+				if($num_rows == '0'){
+					break;
+				}
+			}
+			return $codigo;
+		}
+
+		function DisparaEmailAtivador($usuario,$codigo){
 			include_once("./app/PHPMailer/class.phpmailer.php");
 			include("./app/PHPMailer/class.smtp.php");
 
