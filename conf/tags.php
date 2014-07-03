@@ -22,6 +22,7 @@
 	define('MSG_ERRO_CPF_EXISTENTE','Ja possuimos um cadastro com esse cpf');
 	define('MSG_ERRO_SENHA_DIFERENTE','Senhas diferentes');
 	define('MSG_ERRO_SENHA_OU_EMAIL','Senha ou Email Invalidos');
+	define('MSG_ERRO_DISPARA_EMAIL','Erro ao disparar email com ativador';
 
 	//Mensagens de Ok
 	define('MSG_OK_USUARIO','Cadastro Realizado com Sucesso!');
