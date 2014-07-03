@@ -37,12 +37,11 @@
 			}elseif(!parent::Execute($Sql)){
 				return MSG_ERRO_BANCO;
 			}else{
-				$return = $this->DisparaEmailAtivador($usuario);
-				
-				if($return == true){
+				$flag = $this->DisparaEmailAtivador($usuario);
+				if($flag == true){
 					return 'ok';
 				}else{
-					return 
+					return MSG_ERRO_DISPARA_EMAIL;
 				}
 			}
 		}
@@ -63,9 +62,9 @@
 			$mail->IsHTML(true);
 			$mail->Subject = "Bem-Vindo ao Presente Na Web";
 			$mail->Body = utf8_decode("
-				Nome: $usuario["nome"]<br>
-				Email: $usuario["email"]<br>
-				Assunto: $usuario["cpf"]<br>
+				Nome: $usuario<br>
+				Email: $usuario<br>
+				Assunto: $usuario<br>
 			");
 	            
 	        // Validando a autenticação
@@ -83,7 +82,7 @@
 	        if($mail->Send()){
 	        	return true;
 	        }else{
-				return false;;
+				return false;
 	        }
 		}
 	}

@@ -38,7 +38,9 @@
 			$usuario['senha'] = strip_tags(trim(addslashes($_POST["senha"])));
 			$usuario['senha2'] = strip_tags(trim(addslashes($_POST["senha2"])));
 
+			//Manda pra fncao o array usuario pra adicionar no Banco!
 			$msg = $banco->InsereUsuario($usuario);
+
 			if($msg == 'ok'){
 				$banco->RedirecionaPara('cadastro/ativar');
 			}
