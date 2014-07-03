@@ -40,9 +40,14 @@
 		}
 
 		#abre a sessao
-		function IniciaSessao($usuario){
+		function IniciaSessao($email){
 			session_start('login');
-			$_SESSION['usuario'] = $usuario;
+			$Sql = "Select * from c_usuarios where email = '".$email."'";
+			$result = $this->Execute($Sql);
+			$num_rows = $this->Linha($result);
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			$_SESSION['usuario'] = $rs['nome'];
+			$_SESSION['email'] = $rs['email'];
 		}
 
 		#fecha sessao

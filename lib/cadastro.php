@@ -18,13 +18,14 @@
 
 		#Trabalha com Post de Login
 		if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'login'){
-		$usuario = strip_tags(trim(addslashes($_POST["usuario"])));
+		$email = strip_tags(trim(addslashes($_POST["email"])));
 		$senha = strip_tags(trim(addslashes($_POST["senha"])));
 
-		$flag = $banco->BuscaUsuario($usuario,$senha);
+		$msg = $banco->BuscaUsuario($email,$senha);
 
-			if($flag){
-				$banco->IniciaSessao($usuario);
+			if($msg = 'ok'){
+				$msg = '';
+				$banco->IniciaSessao($email);
 				$banco->RedirecionaPara('minha-conta');
 			}
 		}
