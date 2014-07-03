@@ -37,6 +37,7 @@
 			}elseif(!parent::Execute($Sql)){
 				return MSG_ERRO_BANCO;
 			}else{
+				$codigo = $this->CriaCodigoAtivacao($usuario);
 				$flag = $this->DisparaEmailAtivador($usuario);
 				if($flag == true){
 					return 'ok';
@@ -44,6 +45,18 @@
 					return MSG_ERRO_DISPARA_EMAIL;
 				}
 			}
+		}
+
+		function CriaCodigoAtivacao($usuario){
+			$Sql = "Select idusuario from c_usuarios where email = '".$usuario['email']."'";
+			$codigo = parent::GeraCodigo(10,true,true,false);
+			$result = parent::Execute($Sql);
+			$num_rows = parent::Linha($result);
+			if($num_rows){
+				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+				$idusuario = $rs['idusuario'];
+			}
+
 		}
 
 		function DisparaEmailAtivador($usuario){
@@ -83,5 +96,7 @@
 				return false;
 	        }
 		}
+
+
 	}
 ?>
