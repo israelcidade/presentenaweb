@@ -117,10 +117,11 @@
 			$num_rows = parent::Linha($result);
 			if($num_rows){
 				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
-				$SqlBanco = "Update c_marcas SET marca = '".$marca."', foto = '".$caminho_foto."' where idmarca = '".$idmarca."' ";
-				$Sql2 = "Update c_usuarios SET ativo = 1 where idusuario '".$rs['idusuario']."' ";
+				$Sql2 = "Update c_usuarios SET ativo = 1 where idusuario = '".$rs['idusuario']."' ";
+				$result2 = parent::Execute($Sql2);
+				return MSG_OK_CONTA_ATIVADA;
 			}else{
-				return false;
+				return MSG_ERRO_ATIVAR_CONTA;
 			}
 		}
 	}
