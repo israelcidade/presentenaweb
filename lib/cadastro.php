@@ -14,6 +14,12 @@
 
 		if($this->PaginaAux[0] == "codigo"){
 			$codigo = $this->PaginaAux[1];
+			$flag = BuscaCodigo($codigo);
+			if($flag == true){
+				$msg = ;
+			}else{
+				$msg = ;
+			}
 		}
 
 		if($this->PaginaAux[0] == "ativar"){

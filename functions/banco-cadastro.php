@@ -110,7 +110,5 @@
 				return false;
 	        }
 		}
-
-
 	}
 ?>
