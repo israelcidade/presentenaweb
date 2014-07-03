@@ -110,5 +110,18 @@
 				return false;
 	        }
 		}
+
+		function BuscaCodigo($codigo){
+			$Sql = "Select * from c_codigos where codigo = '".$codigo."' ";
+			$result = parent::Execute($Sql);
+			$num_rows = parent::Linha($result);
+			if($num_rows){
+				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+				$SqlBanco = "Update c_marcas SET marca = '".$marca."', foto = '".$caminho_foto."' where idmarca = '".$idmarca."' ";
+				$Sql2 = "Update c_usuarios SET ativo = 1 where idusuario '".$rs['idusuario']."' ";
+			}else{
+				return false;
+			}
+		}
 	}
 ?>
