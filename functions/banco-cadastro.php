@@ -38,7 +38,6 @@
 				return MSG_ERRO_BANCO;
 			}else{
 				$codigo = $this->InsereCodigo($usuario);
-				die;
 				$flag = $this->DisparaEmailAtivador($usuario,$codigo);
 				if($flag == true){
 					return 'ok';
@@ -63,8 +62,7 @@
 		}
 
 		function CriaCodigoAtivacao(){
-			while(){
-				$codigo = parent::GeraCodigo(10,true,true,false);
+			while($codigo = parent::GeraCodigo(10,true,true,false)){
 				$Sql = "Select codigo from c_codigos where codigo = '".$codigo."'";
 				$result = parent::Execute($Sql);
 				$num_rows = parent::Linha($result);
