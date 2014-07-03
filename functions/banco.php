@@ -48,6 +48,7 @@
 			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 			$_SESSION['usuario'] = $rs['nome'];
 			$_SESSION['email'] = $rs['email'];
+			$_SESSION['idusuario'] = $rs['idusuario'];
 		}
 
 		#fecha sessao

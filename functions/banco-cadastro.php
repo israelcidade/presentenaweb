@@ -37,8 +37,13 @@
 			}elseif(!parent::Execute($Sql)){
 				return MSG_ERRO_BANCO;
 			}else{
+				$this->DisparaEmailAtivador($usuario);
 				return 'ok';
 			}
+		}
+
+		function DisparaEmailAtivador($usuario){
+			
 		}
 	}
 ?>
