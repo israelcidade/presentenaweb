@@ -47,8 +47,8 @@
 		}
 
 		function DisparaEmailAtivador($usuario){
-			include_once("../app/PHPMailer/class.phpmailer.php");
-			include("../app/PHPMailer/class.smtp.php");
+			include_once("./app/PHPMailer/class.phpmailer.php");
+			include("./app/PHPMailer/class.smtp.php");
 
 			#Carrega classe MAILER
 			$mail = new PHPMailer();
@@ -62,9 +62,7 @@
 			$mail->IsHTML(true);
 			$mail->Subject = "Bem-Vindo ao Presente Na Web";
 			$mail->Body = utf8_decode("
-				Nome: $usuario<br>
-				Email: $usuario<br>
-				Assunto: $usuario<br>
+				teste de conteudo de email
 			");
 	            
 	        // Validando a autenticação
