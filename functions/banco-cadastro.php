@@ -13,7 +13,7 @@
 
 			if(!$num_rows){
 				return MSG_ERRO_SENHA_OU_EMAIL;
-			}elseif($rs['ativo'] == 0){
+			}elseif($rs['ativo'] == '0'){
 				return MSG_AVISO_ATIVAR;
 			}else{
 				return 'ok';

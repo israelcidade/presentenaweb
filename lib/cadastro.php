@@ -23,7 +23,7 @@
 
 		$msg = $banco->BuscaUsuario($email,$senha);
 
-			if($msg = 'ok'){
+			if($msg == 'ok'){
 				$msg = '';
 				$banco->IniciaSessao($email);
 				$banco->RedirecionaPara('minha-conta');
