@@ -9,6 +9,8 @@
 			";
 
 			$this->SalvaImagemFisica($produto['foto']);
+
+			$result = parent::Execute($Sql);
 		}
 
 		function SalvaImagemFisica($arr){
@@ -22,10 +24,11 @@
 			//Salva foto no caminho com nome correto
 			preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $arr["name"], $ext);
 			$caminho_foto = "arq/produtos/".$ultimoid.'.'.$ext[1];
-			move_uploaded_file($foto["tmp_name"], $caminho_foto);
+			move_uploaded_file($arr["tmp_name"], $caminho_foto);
 
 			//Salva em c_fotos
-			$SqlBanco = "Insert Into c_marcas (marca, foto) VALUES ('".$marca."','".$caminho_foto."')";
+			$SqlBanco = "Insert Into c_fotos (idproduto ,caminho) VALUES ('".$ultimoid."','".$caminho_foto."')";
+			$result2 = parent::Execute($Sql);
 		}
 
 	}
