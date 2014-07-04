@@ -12,13 +12,19 @@
 		}
 
 		function SalvaImagemFisica($arr){
+
+			//Busca Ultimo id dos produtos
 			$Sql = " select MAX(idproduto) as idproduto FROM c_produtos ";
 			$result = parent::Execute($Sql);
 			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 			$ultimoid = $rs['idproduto'] + 1;
+
+			//Salva foto no caminho com nome correto
 			preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $arr["name"], $ext);
 			$caminho_foto = "arq/produtos/".$ultimoid.'.'.$ext[1];
 			move_uploaded_file($foto["tmp_name"], $caminho_foto);
+
+			//Salva em c_fotos
 			$SqlBanco = "Insert Into c_marcas (marca, foto) VALUES ('".$marca."','".$caminho_foto."')";
 		}
 
