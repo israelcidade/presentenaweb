@@ -5,11 +5,6 @@
 	#Instancia o objeto
 	$banco = new bancoadmin();
 
-	//Trabalha com produto-cadastrado
-	if($this->PaginaAux[0] == 'produto-cadastrado'){
-		$msg = MSG_OK_PRODUTO_CADASTRADO;
-	}
-
 	#Trabalha com Post de Login
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'cadastrar'){
 		$produto['nome'] = strip_tags(trim(addslashes($_POST["nome"])));
@@ -19,10 +14,10 @@
 		$produto['valorvenda'] = strip_tags(trim(addslashes($_POST["valorvenda"])));
 		$produto['foto'] = $_FILES["foto"];
 
-		$msg = $banco->InsereProduto($produto);
+		$flag = $banco->InsereProduto($produto);
 
-		if($msg == 'ok'){
-			$banco->RedirecionaPara('admin/produto-cadastrado');
+		if($flag == 'ok'){
+			$msg = MSG_OK_PRODUTO_CADASTRADO;
 		}
 
 	}
