@@ -24,6 +24,7 @@
 	define('MSG_ERRO_SENHA_OU_EMAIL','Senha ou Email Invalidos');
 	define('MSG_ERRO_DISPARA_EMAIL','Erro ao disparar email com ativador');
 	define('MSG_ERRO_ATIVAR_CONTA','Erro ao Ativar conta! entre em contato.');
+	define('MSG_ERRO_SALVAR_PRODUTO','Erro ao Salvar o Produto.');
 
 	//Mensagens de Ok
 	define('MSG_OK_USUARIO','Cadastro Realizado com Sucesso!');

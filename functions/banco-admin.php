@@ -10,7 +10,11 @@
 
 			$this->SalvaImagemFisica($produto['foto']);
 
-			$result = parent::Execute($Sql);
+			if($result = parent::Execute($Sql)){
+				return 'ok';
+			}else{
+				return MSG_ERRO_SALVAR_PRODUTO;
+			}
 		}
 
 		function SalvaImagemFisica($arr){
