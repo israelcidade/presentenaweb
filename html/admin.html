@@ -1,1 +1,12 @@
 tela admin
+<%MSG%>
+<form action="" enctype="multipart/form-data" method="post">
+	<input type ="hidden" name="acao" value="cadastrar">
+	Nome Produto: <input type="text" name="nome" placeholder=""><br>
+	Descricao: <textarea name="descricao" placeholder=""></textarea><br>
+	Valor Compra: <input type="text" name="valorcompra" placeholder=""><br>
+	De: <input type="text" name="de" placeholder=""><br>
+	Valor Venda: <input type="text" name="valorvenda" placeholder=""><br>
+	Imagem: <input type="file" name="foto"><br>
+	<button type="submit">Cadastrar</button>
+</form>

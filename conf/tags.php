@@ -28,6 +28,7 @@
 	//Mensagens de Ok
 	define('MSG_OK_USUARIO','Cadastro Realizado com Sucesso!');
 	define('MSG_OK_CONTA_ATIVADA','Conta Ativada com Sucesso!');
+	define('MSG_OK_PRODUTO_CADASTRADO','Produto Cadastrado com Sucesso!');
 
 	//Mensagens de Avisos
 	define('MSG_AVISO_ATIVAR','Por Favor, ative sua conta antes de acessar!');
