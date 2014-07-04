@@ -19,6 +19,9 @@
 			$Sql = " select MAX(idproduto) as idproduto FROM c_produtos ";
 			$result = parent::Execute($Sql);
 			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			if($rs['idproduto'] == 'NULL'){
+				$rs['idproduto'] = 0;
+			}
 			$ultimoid = $rs['idproduto'] + 1;
 
 			//Salva foto no caminho com nome correto
@@ -28,7 +31,7 @@
 
 			//Salva em c_fotos
 			$SqlBanco = "Insert Into c_fotos (idproduto ,caminho) VALUES ('".$ultimoid."','".$caminho_foto."')";
-			$result2 = parent::Execute($Sql);
+			$result2 = parent::Execute($SqlBanco);
 		}
 
 	}
