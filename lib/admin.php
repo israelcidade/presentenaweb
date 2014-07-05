@@ -22,7 +22,16 @@
 
 	}
 
+	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'cadastrar-kit'){
+		$produto['nomekit'] = strip_tags(trim(addslashes($_POST["nomekit"])));
+		$produto['produto'] = strip_tags(trim(addslashes($_POST["produto"])));
+
+	}
+
+	
+
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('admin');
 	$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);
+	$Conteudo = str_replace('<%PRODUTOS%>', $Produtos, $Conteudo);
 ?>

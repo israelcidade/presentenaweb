@@ -1,5 +1,5 @@
-tela admin
-<%MSG%>
+tela admin<br>
+<p style="background-color: red;"><%MSG%></p><br>
 <form action="" enctype="multipart/form-data" method="post">
 	<input type ="hidden" name="acao" value="cadastrar">
 	Nome Produto: <input type="text" name="nome" placeholder=""><br>
@@ -9,4 +9,11 @@ tela admin
 	Valor Venda: <input type="text" name="valorvenda" placeholder=""><br>
 	Imagem: <input type="file" name="foto"><br>
 	<button type="submit">Cadastrar</button>
+</form>
+<br>
+<form action="" method="post">
+	<input type ="hidden" name="acao" value="cadastrar-kit">
+	Nome Kit: <input type="text" name="nomekit" placeholder=""><br>
+	<%PRODUTOS%>
+	<button type="submit">Cadastrar Kit</button>
 </form>

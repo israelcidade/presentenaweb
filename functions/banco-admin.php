@@ -38,5 +38,22 @@
 			$result2 = parent::Execute($SqlBanco);
 		}
 
+		function MontaSelectProdutos(){
+			$protudos = '<select name="produto">';
+			$protudos .= '<option value="0">Selecione um Produto</option>';
+			$Sql = "Select * from c_produtos";
+			$result = parent::Execute($Sql);
+			while($aux = mysql_fetch_array($result, MYSQL_ASSOC))
+			{
+				$selected = '';
+				if($protudos == $aux['idproduto']){
+					$selected = 'selected';
+				}
+				$protudos .= '<option value="'.$aux['idproduto'].'" '.$selected.'>'.$aux['nome'].'</option>';
+			}
+			$protudos .= '</select>';
+			return $protudos;
+		}
+
 	}
 ?>
