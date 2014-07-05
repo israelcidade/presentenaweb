@@ -25,11 +25,13 @@
 	define('MSG_ERRO_DISPARA_EMAIL','Erro ao disparar email com ativador');
 	define('MSG_ERRO_ATIVAR_CONTA','Erro ao Ativar conta! entre em contato.');
 	define('MSG_ERRO_SALVAR_PRODUTO','Erro ao Salvar o Produto.');
+	define('MSG_ERRO_SALVAR_KIT','Erro ao Salvar o Kit.');
 
 	//Mensagens de Ok
 	define('MSG_OK_USUARIO','Cadastro Realizado com Sucesso!');
 	define('MSG_OK_CONTA_ATIVADA','Conta Ativada com Sucesso!');
 	define('MSG_OK_PRODUTO_CADASTRADO','Produto Cadastrado com Sucesso!');
+	define('MSG_OK_KIT_CADASTRADO','KIT Cadastrado com sucesso!');
 
 	//Mensagens de Avisos
 	define('MSG_AVISO_ATIVAR','Por Favor, ative sua conta antes de acessar!');

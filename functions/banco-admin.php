@@ -55,5 +55,13 @@
 			return $protudos;
 		}
 
+		function InsereKit($kit){
+			$Sql = "Insert Into c_kits (nome) VALUES ('".$kit['nomekit']."') ";
+			if($result = parent::Execute($Sql)){
+				return 'ok';
+			}else{
+				return MSG_ERRO_SALVAR_KIT;
+			}
+		}
 	}
 ?>

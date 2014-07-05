@@ -14,18 +14,22 @@
 		$produto['valorvenda'] = strip_tags(trim(addslashes($_POST["valorvenda"])));
 		$produto['foto'] = $_FILES["foto"];
 
-		$flag = $banco->InsereProduto($produto);
+		$msg = $banco->InsereProduto($produto);
 
-		if($flag == 'ok'){
+		if($msg == 'ok'){
 			$msg = MSG_OK_PRODUTO_CADASTRADO;
 		}
 
 	}
 
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'cadastrar-kit'){
-		$produto['nomekit'] = strip_tags(trim(addslashes($_POST["nomekit"])));
-		$produto['produto'] = strip_tags(trim(addslashes($_POST["produto"])));
+		$kit['nomekit'] = strip_tags(trim(addslashes($_POST["nomekit"])));
 
+		$msg = $banco->InsereKit($kit);
+
+		if($msg == 'ok'){
+			$msg = MSG_OK_KIT_CADASTRADO;
+		}
 	}
 
 	
