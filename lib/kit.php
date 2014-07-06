@@ -20,8 +20,6 @@
 
 	}
 
-	$Kit = $banco->BuscaKit($PaginaAux[0]);
-
 	$idkit = 'a';
 
 	#Imprimi valores
