@@ -5,10 +5,6 @@
 	#Instancia o objeto
 	$banco = new bancofinalizar();
 
-	#Variaveis Vazias
-	$arr['Cidade'] = '';
-	$arr['Bairro'] = '';
-
 	#Trabalha com Post de Login
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'busca-cep'){
 		$cep = strip_tags(trim(addslashes($_POST["buscar-cep"])));
