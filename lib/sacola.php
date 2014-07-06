@@ -10,11 +10,16 @@
 
 	if($this->PaginaAux[0] == 'add'){
 		$msg = MSG_OK_KIT_ADICIONADO_SACOLA;
-
-		var_dump($_SESSION['sacola']);
 	}
+
+	//Lista Itens da Sacola
+	#Carrega o html de Auxilio
+	$Auxilio = $banco->CarregaHtml('itens/lista-produtos-itens');
+
+	$Produtos = $banco->ListaProdutosSacola($_SESSION['sacola'],$Auxilio);
 
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('sacola');
 	$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);
+	$Conteudo = str_replace('<%PRODUTOS%>', $Produtos, $Conteudo);
 ?>
