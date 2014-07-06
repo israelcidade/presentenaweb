@@ -10,10 +10,10 @@
 		//Depois redireciona para a tela de sacola.
 		$idkit = strip_tags(trim(addslashes($_POST["idkit"])));
 		
-		$msg = $Banco->AdicionaSacola($idkit);
+		$msg = $banco->AdicionaSacola($idkit);
 
 		if($msg == 'ok'){
-			$Banco->RedirecionaPara('sacola/add');
+			$banco->RedirecionaPara('sacola/add');
 		}else{
 			$msg = MSG_ERRO_ADICIONAR_SACOLA;
 		}
