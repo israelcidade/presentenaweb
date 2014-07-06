@@ -26,6 +26,7 @@
 	define('MSG_ERRO_ATIVAR_CONTA','Erro ao Ativar conta! entre em contato.');
 	define('MSG_ERRO_SALVAR_PRODUTO','Erro ao Salvar o Produto.');
 	define('MSG_ERRO_SALVAR_KIT','Erro ao Salvar o Kit.');
+	define('MSG_ERRO_ADICIONAR_SACOLA','Erro ao Adicionar Kit na Sacola');
 
 	//Mensagens de Ok
 	define('MSG_OK_USUARIO','Cadastro Realizado com Sucesso!');
