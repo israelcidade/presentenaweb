@@ -13,7 +13,7 @@
 		$msg = $Banco->AdicionaSacola($idkit);
 
 		if($msg == 'ok'){
-			$Banco->RedirecionaPara('');
+			$Banco->RedirecionaPara('sacola/add');
 		}else{
 			$msg = MSG_ERRO_ADICIONAR_SACOLA;
 		}

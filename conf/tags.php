@@ -33,6 +33,7 @@
 	define('MSG_OK_CONTA_ATIVADA','Conta Ativada com Sucesso!');
 	define('MSG_OK_PRODUTO_CADASTRADO','Produto Cadastrado com Sucesso!');
 	define('MSG_OK_KIT_CADASTRADO','KIT Cadastrado com sucesso!');
+	define('MSG_OK_KIT_ADICIONADO_SACOLA','KIT adicionado na sacola com sucesso');
 
 	//Mensagens de Avisos
 	define('MSG_AVISO_ATIVAR','Por Favor, ative sua conta antes de acessar!');
