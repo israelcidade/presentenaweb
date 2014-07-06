@@ -5,12 +5,24 @@
 	#Instancia o objeto
 	$banco = new bancofinalizar();
 
+	#Variaveis Vazias
+	$arr['Cidade'] = '';
+	$arr['Bairro'] = '';
+
 	#Trabalha com Post de Login
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'busca-cep'){
 		$cep = strip_tags(trim(addslashes($_POST["buscar-cep"])));
-		echo $cep;die;
+
+		$arr = $banco->BuscaCep($cep);
+
 	}
 
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('finalizar-pedido');
+	$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);
+	$Conteudo = str_replace('<%CEP%>', $cep, $Conteudo);
+	$Conteudo = str_replace('<%CIDADE%>', $arr['cidade'], $Conteudo);
+	$Conteudo = str_replace('<%BAIRRO%>', $arr['bairro'], $Conteudo);
+	$Conteudo = str_replace('<%ESTADO%>', $arr['uf'], $Conteudo);
+	$Conteudo = str_replace('<%ESDERECOENTREGA%>', $arr['tipo_logradouro'].' '.$arr['logradouro'], $Conteudo);
 ?>
