@@ -7,8 +7,10 @@
 
 	$Kit = $banco->BuscaKit($PaginaAux[0]);
 
+	$idkit = 1;
+
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('kit');
 	$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);
-	$Conteudo = str_replace('<%KIT%>', $Kit, $Conteudo);
+	$Conteudo = str_replace('<%IDKIT%>', $idkit, $Conteudo);
 ?>
