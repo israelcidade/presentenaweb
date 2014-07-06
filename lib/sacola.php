@@ -12,6 +12,14 @@
 		$msg = MSG_OK_KIT_ADICIONADO_SACOLA;
 	}
 
+	if($this->PaginaAux[0] == 'remove'){
+		$msg = $banco->RemoveSacola($this->PaginaAux[1]);
+
+		if($msg == 'ok'){
+			$msg = MSG_OK_REMOVE_PRODUTO_SACOLA;
+		}
+	}
+
 	//Lista Itens da Sacola
 	#Carrega o html de Auxilio
 	$Auxilio = $banco->CarregaHtml('itens/lista-produtos-itens');

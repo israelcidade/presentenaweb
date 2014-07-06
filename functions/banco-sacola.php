@@ -14,8 +14,15 @@
 				$Linha = str_replace('<%ID%>',$rs['idproduto'],$Linha);
 				$Produtos .= $Linha;
 			}
-			
+
 			return $Produtos;
+		}
+
+		function RemoveSacola($id){
+			session_start('sacola');
+			$key = array_search($id,$_SESSION['sacola']);
+			unset($_SESSION['sacola'][$key]);
+			return 'ok';
 		}
 	}
 ?>
