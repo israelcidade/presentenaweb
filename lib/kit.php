@@ -8,6 +8,8 @@
 	if(isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'carrinho'){
 		//Recebe o kit escolhido e joga ele na SACOLA.
 		//Depois redireciona para a tela de sacola.
+		$idkit = strip_tags(trim(addslashes($_POST["idkit"])));
+		echo $idkit;
 
 	}
 
