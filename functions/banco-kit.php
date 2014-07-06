@@ -12,7 +12,7 @@
 			$num_rows = $this->Linha($result);
 			
 			while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
-				$_SESSION['sacola'] = $rs['idproduto'];
+				$_SESSION['sacola'][] = $rs['idproduto'];
 			}
 
 			return 'ok';
