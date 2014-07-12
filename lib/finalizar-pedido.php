@@ -5,14 +5,16 @@
 	#Instancia o objeto
 	$banco = new bancofinalizar();
 
+	session_start('sacola');
+
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'finalizar'){
 		foreach ($_POST as $key => $value) {
 			$pedido[$key] = strip_tags(trim(addslashes($_POST[$key])));
 		}
 
-	}
+		$msg = $banco->FinalzarCompra($pedido,$_SESSION['idusuario'],$_SESSION['sacola']);
 
-	var_dump($pedido);
+	}
 
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('finalizar-pedido');
