@@ -6,9 +6,13 @@
 	$banco = new bancofinalizar();
 
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'finalizar'){
-		echo 'entrei';die;
+		foreach ($_POST as $key => $value) {
+			$pedido[$key] = strip_tags(trim(addslashes($_POST[$key])));
+		}
 
 	}
+
+	var_dump($pedido);
 
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('finalizar-pedido');
