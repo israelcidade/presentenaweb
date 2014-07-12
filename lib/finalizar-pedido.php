@@ -5,11 +5,8 @@
 	#Instancia o objeto
 	$banco = new bancofinalizar();
 
-	#Trabalha com Post de Login
-	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'busca-cep'){
-		$cep = strip_tags(trim(addslashes($_POST["buscar-cep"])));
-
-		$arr = $banco->BuscaCep($cep);
+	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'finalizar'){
+		echo 'entrei';die;
 
 	}
 

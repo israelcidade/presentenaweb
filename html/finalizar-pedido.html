@@ -6,23 +6,19 @@ tela pra finalizar pedido
 	Nome Completo: <input type="text" name="nome-completo"><br>
 	Email: <input type="text" name="email"><br>
 	Cpf: <input type="text" name="cpf"><br>
-	Telefone: <input type="text" name="telefone"><br>
+	Telefone: <input type="text" name="telefone"><br><br><br>
 
-	<br><br>
-	<form action="" method="post">
-	<input type="hidden" name="acao" value="busca-cep">
-	<input type="text" name="buscar-cep"/>
-	<button type="submit">Buscar Cep</button>
-	</form>
+	<input type="text" name="busca-cep"/>
+	<a href="javascript:void(0);" onClick="buscacep()">Buscar Cep</a><br>
 
 	Nome Destinatario: <input type="text" name="nome-destinatario"><br>
-	Cep: <input type="text" value="<%CEP%>" name="cep"><br>
-	Endereco Entrega: <input type="text" value="<%ESDERECOENTREGA%>" name="endereco-entrega"><br>
+	Cep: <input type="text" name="cep"><br>
+	Endereco Entrega: <input type="text" name="endereco"><br>
 	Numero: <input type="text" name="numero"><br>
 	Complemento: <input type="text" name="complemento"><br>
-	Bairro: <input type="text" value="<%BAIRRO%>" name="bairro"><br>
-	Cidade: <input type="text" value="<%CIDADE%>" name="cidade"><br>
-	Estado: <input type="text" value="<%ESTADO%>" name="estado"><br>
+	Bairro: <input type="text" name="bairro"><br>
+	Cidade: <input type="text" name="cidade"><br>
+	Estado: <input type="text" name="estado"><br>
 	Pais: <input type="text" value="Brasil" name="pais"><br>
 
 	<button type="submit">Enviar Pedido</button>
