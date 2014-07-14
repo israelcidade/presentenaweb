@@ -2,17 +2,17 @@
 
 @font-face {
   font-family: 'AmaticSC-Regular';
-  src: url('fonts/AmaticSC-Regular.woff') format('woff'), url('fonts/AmaticSC-Regular.ttf') format('truetype'), url('fonts/AmaticSC-Regular.otf') format('opentype');;
+  src: url('../fonts/AmaticSC-Regular.woff') format('woff'), url('../fonts/AmaticSC-Regular.ttf') format('truetype'), url('../fonts/AmaticSC-Regular.otf') format('opentype');;
 }
 
 @font-face {
   font-family: 'BebasNeue';
-  src: url('fonts/BebasNeue.woff') format('woff'), url('fonts/BebasNeue.ttf') format('truetype'), url('fonts/BebasNeue.otf') format('opentype');;
+  src: url('../fonts/BebasNeue.woff') format('woff'), url('../fonts/BebasNeue.ttf') format('truetype'), url('../fonts/BebasNeue.otf') format('opentype');;
 }
 
 @font-face {
   font-family: 'Gothic';
-  src: url('fonts/gothic.woff') format('woff'), url('fonts/gothic.ttf') format('truetype'), url('fonts/gothic.otf') format('opentype');;
+  src: url('../fonts/gothic.woff') format('woff'), url('../fonts/gothic.ttf') format('truetype'), url('../fonts/gothic.otf') format('opentype');;
 }
 
 
@@ -105,7 +105,7 @@
 	padding:8px 0px;
 	padding-left:50px;
 	border:1px solid #CDCCB6;
-	background:url(http://localhost/presentenaweb/html/style/images/search.png) no-repeat;
+	background:url(../images/search.png) no-repeat;
 	background-position:center left 12px;
 }
 
