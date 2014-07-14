@@ -142,6 +142,8 @@
 			$deslogar = '';
 			$usuario = '';
 			$SaidaHtml = $this->CarregaHtml('modelo');
+			$SaidaHtml = $this->InfoSacola($SaidaHtml,$Conteudo);
+
 			if($this->VerificaSessao()){
 				$deslogar = "<a href='".UrlPadrao."inicio/deslogar/' onClick=\"return confirm('Tem certeza que deseja deslogar ?')\" >Deslogar</a>";
 				$usuario = $_SESSION['usuario'];
@@ -150,6 +152,8 @@
 			}else{
 				$SaidaHtml = str_replace('<%SAIR%>','Ol&aacute;',$SaidaHtml);
 			}
+
+
 			$SaidaHtml = str_replace('<%CONTEUDO%>',$Conteudo,$SaidaHtml);
 			$SaidaHtml = str_replace('<%URLPADRAO%>',UrlPadrao,$SaidaHtml);
 			echo $SaidaHtml;
@@ -174,6 +178,19 @@
 				$retorno .= $caracteres[$rand-1];
 			}
 			return $retorno;
+		}
+
+		function InfoSacola($SaidaHtml,$Conteudo){
+			session_start('sacola');
+			foreach ($_SESSION['sacola'] as $key => $value) {
+				$Sql = "Select * from c_produtos where idproduto = '".$value."'";
+				$result = $this->Execute($Sql);
+				$num_rows = $this->Linha($result);
+				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+
+			}
+			$SaidaHtml = str_replace('<%QUANTIDADE%>',$num_rows,$SaidaHtml);
+			return $SaidaHtml;
 		}
 	}
 ?>
