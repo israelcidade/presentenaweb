@@ -654,3 +654,10 @@ footer .copyright-wrap .container{
 .columns col1 ul li a{
 	color: white;
 }
+
+#box-loader{
+	display: none;
+	min-width: 66px;
+	min-height: 34px;
+	float: right;
+}
