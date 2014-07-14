@@ -114,7 +114,11 @@
                         <h1>R$ 139,90</h1>
                 	</div>
                     <div class="right">
-                    	<a href="#" class="btn btn-danger">COMPAR</a>
+                        <form method="post" action="">
+                            <input type ="hidden" name="acao" value="sacola">
+                            <input type="hidden" name="idkit" value="<%IDKIT%>">
+                            <button type="submit" class="btn btn-danger">Adicionar na Sacola</button>
+                        </form>
                     </div>
                 </div>
                 
