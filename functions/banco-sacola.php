@@ -12,6 +12,8 @@
 
 				$Linha = $Auxilio;
 				$Linha = str_replace('<%ID%>',$rs['idproduto'],$Linha);
+				$Linha = str_replace('<%NOME%>',$rs['nome'],$Linha);
+				$Linha = str_replace('<%VALORVENDA%>',$rs['valorvenda'],$Linha);
 				$Produtos .= $Linha;
 			}
 
