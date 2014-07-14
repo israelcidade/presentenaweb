@@ -23,7 +23,7 @@
 
 		// Setando o conteudo
 		$mail->IsHTML(true);
-		$mail->Subject = "Contato Site Innovare";
+		$mail->Subject = "Contato Site Presente na Web";
 		$mail->Body = utf8_decode("
 			Nome: $nome<br>
 			Email: $email<br>
