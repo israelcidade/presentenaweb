@@ -1,59 +1,264 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Simple Blue - free website template</title>
-<link href="<%URLPADRAO%>html/templatemo_style.css" rel="stylesheet" type="text/css" />
-<link href="<%URLPADRAO%>/html/css/jquery.ennui.contentslider.css" rel="stylesheet" type="text/css" media="screen,projection" />
-<script type="text/javascript" src="<%URLPADRAO%>html/js/buscacep.js"></script>
-<script type="text/javascript" src="<%URLPADRAO%>html/js/jquery.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <title>Presentena Web</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <!--Favicon-->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
 </head>
+
 <body>
-<div id="templatemo_site_title_bar_wrapper">
-	<div id="templatemo_site_title_bar">
-    	<div id="site_title">
-            <h1><a href="#">Simple Blue<span>free css template</span></a></h1>
+
+<div class="grey-bg">
+    <div class="container">
+        <div class="nav-left">
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
         </div>
-        
-        <ul id="templatemo_menu">
-            <li><a href="<%URLPADRAO%>inicio"><span></span>Inicio</a></li>
-            <li><a href="<%URLPADRAO%>sobre"><span></span>Sobre</a></li>
-			<li><a href="<%URLPADRAO%>entrega-trocas-devolucoes"><span></span>Entrega</a></li>    
-            <li><a href="<%URLPADRAO%>ajuda"><span></span>Ajuda</a></li>
-            <li><a href="<%URLPADRAO%>minha-conta"><span></span>Minta-Conta</a></li>        
-            <li><a href="<%URLPADRAO%>cadastro"><span></span>Cadastro</a></li>
-            <li><a href="<%URLPADRAO%>admin" style="margin-top: 10px;"><span></span>Admin</a></li>
-            <li><a href="<%URLPADRAO%>kit" style="margin-top: 10px;"><span></span>Kit</a></li>
-            <li><a href="<%URLPADRAO%>sacola" style="margin-top: 10px;"><span></span>Sacola</a></li>
-            <li><a href="<%URLPADRAO%>finalizar-pedido" style="margin-top: 10px;"><span></span>Finalizar</a></li>
-        </ul>   
-        Bem Vindo: <%USUARIO%> (<%SAIR%>)    
-	</div> <!-- end of templatemo_site_title_bar -->        
-       
-</div> <!-- end of templatemo_site_title_bar_wrapper -->
-
-<div id="templatemo_content">
-    
-    <div class="section_w940">
-		<%CONTEUDO%>
+        <div class="nav-right">
+            <ul>
+                <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+                <li><a href="#"><span class="fa fa-envelope"></span></a></li>
+            </ul>
+        </div>
     </div>
-    
-    
-    <div class="cleaner"></div>
-</div> <!-- end of templatemo_content -->
- 
+</div>
 
-<div id="templatemo_footer_wrapper">
-<div id="templatemo_footer">
+<div class="container">
+    <div class="header">
+        <div class="col-xs-2"><a href="#"><img src="images/logo.png" width="123" height="138"  alt=""/></a></div>
+        <div class="col-xs-8 search display-table">
+            <div class="table-middle"><input type="text" placeholder="Digite sua busca"></div>
+        </div>
+        <div class="col-xs-2 cart">
+            <img src="images/cart-sad.png" width="50" height="74"  alt=""/>
+            <div class="cart-item-count"><span class="badge bg-danger">0</span></div>
+            <div class="cart-total">R$ 000,00</div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="home-header"><img src="images/home-header.jpg" alt="Presente Na Web"/></div>
+<div class="container">
+    <div class="row highlights">
+        <div class="col-xs-4"><img src="images/deliver.png" class="img-responsive"  alt=""/></div>
+        <div class="col-xs-4"><img src="images/payment.png" class="img-responsive"  alt=""/></div>
+        <div class="col-xs-4"><img src="images/quality.png" class="img-responsive"  alt=""/></div>
+    </div>
+</div>
+<div class="grey-bg2">
+    <div class="grey-bg2-content display-table">
+        <div class="table-middle">
+            <h2>TODOS OS ANOS VOCE DA O MESMO<br>PRESENTE PRO SEU PAI?!</h2>
+            <h1>ESSE ANO, VAMOS INOVAR!</h1>
+        </div>
+    </div>
+</div>
 
-    <div class="cleaner_h40"></div>
+<div class="page-wrapper">
+    <div class="container home">
+        
+        <!--Conatainer box v1 begins-->
+        <div class="content-box-outter">
+            <div class="content-box-inner">
+                <div class="box-left">
+                    <div class="main-img">
+                        <div class="image"><img src="images/PresentenaWeb_imagens-02.jpg" alt=""/></div>
+                        <div class="content">
+                            <h1>R$ 139,<small>90</small></h1>
+                            <h2>Image description</h2>
+                        </div>
+                        <a href="#" class="button">SAIBA MAIS</a>
+                    </div>
+                </div>
+                
+                <div class="box-right">
+                    <div class="items"><div class="inner"></div></div>
+                    <div class="items"><div class="inner"></div></div>
+                    <div class="items last"><div class="inner"></div></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!--Conatainer box v1 ends-->
+        
+        <!--Conatainer box v2 begins-->
+        <div class="content-box-outter">
+            <div class="content-box-inner">
+                <div class="box-left-2">
+                    <div class="items"><div class="inner"></div></div>
+                    <div class="items"><div class="inner"></div></div>
+                    <div class="items last"><div class="inner"></div></div>
+                </div>
+                
+                <div class="box-right-2">
+                    <div class="main-img">
+                        <div class="image"><img src="images/PresentenaWeb_imagens-03.jpg" alt=""/></div>
+                        <div class="content">
+                            <h1>R$ 139,<small>90</small></h1>
+                            <h2>Image description</h2>
+                        </div>
+                        <a href="#" class="button">SAIBA MAIS</a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!--Conatainer box v2 ends-->
+        
+        <!--Conatainer box v1 begins-->
+        <div class="content-box-outter">
+            <div class="content-box-inner">
+                <div class="box-left">
+                    <div class="main-img">
+                        <div class="image"><img src="images/PresentenaWeb_imagens-04.jpg" alt=""/></div>
+                        <div class="content">
+                            <h1>R$ 139,<small>90</small></h1>
+                            <h2>Image description</h2>
+                        </div>
+                        <a href="#" class="button">SAIBA MAIS</a>
+                    </div>
+                </div>
+                
+                <div class="box-right">
+                    <div class="items"><div class="inner"></div></div>
+                    <div class="items"><div class="inner"></div></div>
+                    <div class="items last"><div class="inner"></div></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!--Conatainer box v1 ends-->
+        
+        <!--Conatainer box v2 begins-->
+        <div class="content-box-outter">
+            <div class="content-box-inner">
+                <div class="box-left-2">
+                    <div class="items"><div class="inner"></div></div>
+                    <div class="items"><div class="inner"></div></div>
+                    <div class="items last"><div class="inner"></div></div>
+                </div>
+                
+                <div class="box-right-2">
+                    <div class="main-img">
+                        <div class="image"><img src="images/PresentenaWeb_imagens-05.jpg" alt=""/></div>
+                        <div class="content">
+                            <h1>R$ 139,<small>90</small></h1>
+                            <h2>Image description</h2>
+                        </div>
+                        <a href="#" class="button">SAIBA MAIS</a>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!--Conatainer box v2 ends-->
+        
+    </div>
+</div>
 
-    <center>
-        Copyright © 2048 <a href="#">Your Company Name</a> | 
-        <a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a>
-    </center>
-    
-</div> <!-- end of footer -->
-</div> <!-- end of footer wrapper -->
+<footer>
+    <div class="white-wrapper">
+        <div class="container">
+            <div class="footer-counters">
+                <img src="images/footer-counters.jpg" class="img-responsive"  alt=""/>
+                <div class="counters one">0000</div>
+                <div class="counters two">0000</div>
+                <div class="counters three">00%</div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="columns col1">
+            <h3>PRESENTE NA WEB</h3>
+            <ul>
+                <li>Sobre</li>
+                <li>Entrega, tracas e devolucoes</li>
+                <li>Ajuda</li>
+            </ul>
+            <h3>PAGAMENTOS</h3>
+            <ul>
+                <li>PagSeguro</li>
+            </ul>
+        </div>
+        <div class="columns col2">
+            <h3>VOCE</h3>
+            <ul>
+                <li>Minha contra</li>
+                <li>Rastreie seu pedido</li>
+            </ul>
+            
+            <h3>ATENDIMENTO</h3>
+            <p>Presente na Web<br>
+            CNPJ: 000000000000-00<br>
+            sac@presentenaweb.com.br<br>
+            43 2533-2707</p>
+        </div>
+        <div class="columns col3">
+            <h3>FALE CONOSCO</h3>
+            <form role="form">
+                <div class="form-group">
+                    <input type="text" class="form-control" required id="name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" required id="email" placeholder="E-mail">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" placeholder="Assunto"></textarea>
+                </div>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-danger">Enviar</button>
+                </div>
+            </form>
+        </div>
+        <div class="columns col4">
+            <h3>RECEBA NOSSA NEWSLATTER</h3>
+            <form role="form" class="form-inline">
+                <div class="form-group">
+                    <input type="email" class="form-control" required id="email" placeholder="E-mail">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-danger">Enviar</button>
+                </div>
+            </form>
+            
+            <h3>SEGURANCA E CERTIFICACAO</h3>
+            <div class="certificate"></div>
+        </div>
+        <br><br><br><br><br><br><br>
+    </div>
+    <div class="copyright-wrap">
+        <div class="container">
+            <div class="pull-left">
+                <p>&copy; 2014 PRESENTE NA WEB | TODOS OS DIREITOS RESERVADOS</p>
+             </div>
+            <div class="pull-right">
+                <p>DESENVOLVIDO FOR</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</footer>
 </body>
+
 </html>
