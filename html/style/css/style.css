@@ -648,3 +648,9 @@ footer .copyright-wrap .container{
 .form2 label{
 	font-weight:normal;
 }
+
+/* FEITO POR MIM */
+
+.columns col1 li link{
+	color: white;
+}
