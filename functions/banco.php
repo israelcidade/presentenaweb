@@ -187,9 +187,12 @@
 				$result = $this->Execute($Sql);
 				$num_rows = $this->Linha($result);
 				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+				$i++;
+				$total = $total+$rs['valorvenda'];
 
 			}
-			$SaidaHtml = str_replace('<%QUANTIDADE%>',$num_rows,$SaidaHtml);
+			$SaidaHtml = str_replace('<%QUANTIDADE%>',$i,$SaidaHtml);
+			$SaidaHtml = str_replace('<%TOTAL%>',$total,$SaidaHtml);
 			return $SaidaHtml;
 		}
 	}
