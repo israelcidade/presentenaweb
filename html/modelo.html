@@ -74,7 +74,7 @@
     <div class="white-wrapper">
         <div class="container">
             <div class="footer-counters">
-                <img src="<%URLPADRAO%>html/style/images/footer-counters.jpg" class="img-responsive"  alt=""/>
+                <img src="<%URLPADRAO%>html/style/images/footer-counters.jpg" class="img-responsive" alt=""/>
                 <div class="counters one">0000</div>
                 <div class="counters two">0000</div>
                 <div class="counters three">00%</div>
@@ -109,7 +109,7 @@
         </div>
         <div class="columns col3">
             <h3>FALE CONOSCO</h3>
-            <form role="form">
+           <!-- CONTATO -->
                 <div class="form-group">
                     <input type="text" class="form-control" required id="name" placeholder="Name">
                 </div>
@@ -117,12 +117,12 @@
                     <input type="email" class="form-control" required id="email" placeholder="E-mail">
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" rows="5" placeholder="Assunto"></textarea>
+                    <textarea class="form-control" rows="5" required id="assunto" placeholder="Assunto"></textarea>
                 </div>
                 <div class="text-right">
-                    <button type="submit" class="btn btn-danger">Enviar</button>
+                    <input type="button" onClick="contato()" class="btn btn-danger" value="Enviar"> 
                 </div>
-            </form>
+            <!-- TERMINA CONTATO -->
         </div>
         <div class="columns col4">
             <h3>RECEBA NOSSA NEWSLATTER</h3>
@@ -155,3 +155,39 @@
 </body>
 
 </html>
+<script type="text/javascript">
+    function contato(){
+        var nome = $("input[id=nome]").val();
+        var email = $("input[id=email]").val();
+        var assunto = $("textarea[id=assunto]").val();
+
+        if(nome == '' || email == '' || assunto == ''){
+            alert('Por Favor, preencha todos os campos!');
+        }else{
+            $("#button-form").hide();
+            $("#box-loader").show();
+            $.post("<%URLPADRAO%>lib/ajax/enviacontato.php",
+                {nome: nome,email: email,assunto: assunto},
+                function(retorno){
+                    if(retorno == 'emailerrado'){
+                        alert('Email inválido. Tente Novamente!');
+                    }else if(retorno == 'ok'){
+                        alert('Email Enviado com Sucesso! Aguarde nosso Contato!');
+                        $("input[id=nome]").val('');
+                        $("input[id=email]").val('');
+                        $("textarea[id=assunto]").val('');
+                        $("#button-form").show();
+                        $("#box-loader").hide();
+                    }else if(retorno == 'not'){
+                        alert('Falha ao Enviar Email! Tente Novamente mais Tarde');
+                        $("input[id=nome]").val('');
+                        $("input[id=email]").val('');
+                        $("textarea[id=assunto]").val('');
+                        $("#button-form").show();
+                        $("#box-loader").hide();
+                    }
+                }
+            );
+        }
+    }
+</script>

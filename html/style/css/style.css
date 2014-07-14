@@ -651,6 +651,6 @@ footer .copyright-wrap .container{
 
 /* FEITO POR MIM */
 
-.columns col1 li link{
+.columns col1 ul li a{
 	color: white;
 }
