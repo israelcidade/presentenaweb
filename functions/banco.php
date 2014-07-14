@@ -139,21 +139,9 @@
 
 		#funcao imprime conteudo
 		function Imprime($Conteudo){
-			$deslogar = '';
-			$usuario = '';
 			$SaidaHtml = $this->CarregaHtml('modelo');
 			$SaidaHtml = $this->InfoSacola($SaidaHtml,$Conteudo);
-
-			if($this->VerificaSessao()){
-				$deslogar = "<a href='".UrlPadrao."inicio/deslogar/' onClick=\"return confirm('Tem certeza que deseja deslogar ?')\" >Deslogar</a>";
-				$usuario = $_SESSION['usuario'];
-				$SaidaHtml = str_replace('<%SAIR%>',$deslogar,$SaidaHtml);
-				$SaidaHtml = str_replace('<%USUARIO%>',$usuario,$SaidaHtml);
-			}else{
-				$SaidaHtml = str_replace('<%SAIR%>','Ol&aacute;',$SaidaHtml);
-			}
-
-
+			$SaidaHtml = $this->InfoUsuario($SaidaHtml,$Conteudo);
 			$SaidaHtml = str_replace('<%CONTEUDO%>',$Conteudo,$SaidaHtml);
 			$SaidaHtml = str_replace('<%URLPADRAO%>',UrlPadrao,$SaidaHtml);
 			echo $SaidaHtml;
@@ -198,6 +186,20 @@
 			
 			$SaidaHtml = str_replace('<%QUANTIDADE%>',$i,$SaidaHtml);
 			$SaidaHtml = str_replace('<%TOTAL%>',$total,$SaidaHtml);
+			return $SaidaHtml;
+		}
+
+		function InfoUsuario($SaidaHtml,$Conteudo){
+			$deslogar = '';
+			$usuario = '';
+			if($this->VerificaSessao()){
+				$deslogar = "<a href='".UrlPadrao."inicio/deslogar/' onClick=\"return confirm('Tem certeza que deseja deslogar ?')\" >Deslogar</a>";
+				$usuario = $_SESSION['usuario'];
+				$SaidaHtml = str_replace('<%SAIR%>',$deslogar,$SaidaHtml);
+				$SaidaHtml = str_replace('<%USUARIO%>',$usuario,$SaidaHtml);
+			}else{
+				$SaidaHtml = str_replace('<%SAIR%>','Ol&aacute;',$SaidaHtml);
+			}
 			return $SaidaHtml;
 		}
 	}
