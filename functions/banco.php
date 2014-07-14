@@ -182,15 +182,20 @@
 
 		function InfoSacola($SaidaHtml,$Conteudo){
 			session_start('sacola');
-			foreach ($_SESSION['sacola'] as $key => $value) {
+			if(empty($_SESSION['sacola'])){
+				$i = 0;
+				$total = '000,00';
+			}else{
+				foreach ($_SESSION['sacola'] as $key => $value) {
 				$Sql = "Select * from c_produtos where idproduto = '".$value."'";
 				$result = $this->Execute($Sql);
 				$num_rows = $this->Linha($result);
 				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 				$i++;
-				$total = $total+$rs['valorvenda'];
-
+				$total = $total + $rs['valorvenda'];
+				}
 			}
+			
 			$SaidaHtml = str_replace('<%QUANTIDADE%>',$i,$SaidaHtml);
 			$SaidaHtml = str_replace('<%TOTAL%>',$total,$SaidaHtml);
 			return $SaidaHtml;
