@@ -14,12 +14,7 @@
 		$msg = "Acesso Negado";
 	}
 
-	if($banco->VerificaSessao()){
-		$deslogar = "<a href='".UrlPadrao."inicio/deslogar/' onClick=\"return confirm('Tem certeza que deseja deslogar ?')\" >Deslogar</a>";
-	}
-
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('inicio');
-	$Conteudo = str_replace('<%SAIR%>', $deslogar, $Conteudo);
 	$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);
 ?>

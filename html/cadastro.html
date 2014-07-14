@@ -4,14 +4,15 @@
         	<div class="left col1">
 		        <h2>Já tem cadastro na loja?</h2>
                 <p>Se já possui cadastro, informe nos campos abaixo seu e-mail e senha de acesso</p>
-                <form role="form" class="spacer-3x">
+                <form role="form" class="spacer-3x" method="post" action="">
+                    <input type ="hidden" name="acao" value="login">
                     <div class="form-group">
                         <label for="InputEmail1">E-mail: </label>
-                        <input type="email" class="form-control" id="InputEmail1" placeholder="Enter email">
+                        <input type="email" name="email" class="form-control" id="InputEmail1" placeholder="Enter email">
                     </div>
                     <div class="form-group">
                         <label for="InputPassword">Senha: </label>
-                        <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+                        <input type="password" name="senha" class="form-control" id="InputPassword" placeholder="Password">
                     </div>
                     <div class="checkbox">
                         <label>

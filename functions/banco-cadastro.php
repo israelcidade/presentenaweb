@@ -5,11 +5,7 @@
 			$Sql = "Select * from c_usuarios where email = '".$email."' AND senha = '".$senha."' ";
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
-
-			$Sql2 = "Select ativo from c_usuarios where email = '".$email."'";
-			$result2 = parent::Execute($Sql);
-			$num_rows2 = parent::Linha($result);
-			$rs = mysql_fetch_array($result2 , MYSQL_ASSOC);
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 
 			if(!$num_rows){
 				return MSG_ERRO_SENHA_OU_EMAIL;

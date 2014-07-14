@@ -147,6 +147,8 @@
 				$usuario = $_SESSION['usuario'];
 				$SaidaHtml = str_replace('<%SAIR%>',$deslogar,$SaidaHtml);
 				$SaidaHtml = str_replace('<%USUARIO%>',$usuario,$SaidaHtml);
+			}else{
+				$SaidaHtml = str_replace('<%SAIR%>','Ol&aacute;',$SaidaHtml);
 			}
 			$SaidaHtml = str_replace('<%CONTEUDO%>',$Conteudo,$SaidaHtml);
 			$SaidaHtml = str_replace('<%URLPADRAO%>',UrlPadrao,$SaidaHtml);
