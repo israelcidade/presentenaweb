@@ -49,8 +49,8 @@
 			while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
 				$total = $total + $rs['valorvenda'];
 			}
-
-			return $total;
+			
+			return str_replace('.',',', $total);
 		}
 	}
 ?>
