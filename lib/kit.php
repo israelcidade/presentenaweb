@@ -20,8 +20,6 @@
 
 	}
 
-	$idkit = 'a';
-
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('kit');
 	$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);

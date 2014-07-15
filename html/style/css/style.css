@@ -220,7 +220,7 @@
 }
 
 .box-right .items .inner, .box-left-2 .items .inner{
-	background:#DD2033;
+	background:#fff;
 	min-height:120px;
 	width:100%;
 }
@@ -651,7 +651,11 @@ footer .copyright-wrap .container{
 
 /* FEITO POR MIM */
 
-.columns col1 ul li a{
+.columns.col1 ul li a{
+	color: white;
+}
+
+.columns.col2 ul li a{
 	color: white;
 }
 
