@@ -672,3 +672,7 @@ footer .copyright-wrap .container{
 	float: right;
 	margin-right: 42px; 
 }
+
+.cart-total a{
+	color: #4C4E50;
+}
