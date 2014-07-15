@@ -38,5 +38,19 @@
 
 			return $Itens;
 		}
+
+		function MontaTotal($nomekit){
+			$Sql = "Select P.*, K.*
+					FROM c_produtos P
+					INNER JOIN c_kits K ON P.idproduto = K.idproduto
+					AND K.nome = '".$nomekit."' ";
+			$result = $this->Execute($Sql);
+			$num_rows = $this->Linha($result);
+			while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
+				$total = $total + $rs['valorvenda'];
+			}
+
+			return $total;
+		}
 	}
 ?>

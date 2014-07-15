@@ -7,6 +7,7 @@
 
 	if($nomekit = $this->PaginaAux[0]){
 		$Descricao = $banco->MontaDescricao($nomekit);
+		$Total = $banco->MontaTotal($nomekit);
 	}else{
 		$banco->RedirecionaPara('inicio');
 	}
@@ -31,4 +32,5 @@
 	$Conteudo = str_replace('<%IDKIT%>', $nomekit, $Conteudo);
 	$Conteudo = str_replace('<%NOMEKIT%>', $nomekit, $Conteudo);
 	$Conteudo = str_replace('<%DESCRICAOITENS%>', $Descricao, $Conteudo);
+	$Conteudo = str_replace('<%TOTAL%>', $Total, $Conteudo);
 ?>
