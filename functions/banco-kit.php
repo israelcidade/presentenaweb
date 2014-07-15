@@ -2,14 +2,8 @@
 	class bancokit extends banco{
 		
 		function AdicionaSacola($idkit){
-
 			//inicia session sacola pra trabalhar com sacola
 			session_start('sacola');
-
-
-			//Zerar variavel Session !!!
-			//$_SESSION['sacola'] = '';
-			//die;
 
 			//contia script
 			$Sql = "Select * from c_kits where nome = '".$idkit."' ";
@@ -23,6 +17,20 @@
 			}
 
 			return 'ok';
+		}
+
+		function MontaDescricao($nomekit){
+			$Auxilio = parent::CarregaHtml('itens/descricao-itens');
+
+			$Sql = "Select * from c_kits where nome = '".$nomekit."' ";
+			$result = $this->Execute($Sql);
+			$num_rows = $this->Linha($result);
+			while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
+				$Linha = $Auxilio;
+				$Itens .= $Linha;
+			}
+
+			return $Itens;
 		}
 	}
 ?>
