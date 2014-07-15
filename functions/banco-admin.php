@@ -1,14 +1,14 @@
 <?php
 	class bancoadmin extends banco{
 
-		function InsereProduto($produto){
+		function InsereProduto($produto,$files){
 			$Sql = "
 				Insert into c_produtos (idcategoria,idsubcategoria,nome,descricao,valorcompra,de,valorvenda) 
 				VALUES 
 				('','','".$produto['nome']."','".$produto['descricao']."','".$produto['valorcompra']."','".$produto['de']."','".$produto['valorvenda']."') 
 			";
 
-			$this->SalvaImagemFisica($produto['foto']);
+			$this->SalvaImagemFisica($files);
 
 			if($result = parent::Execute($Sql)){
 				return 'ok';
@@ -17,9 +17,23 @@
 			}
 		}
 
-		function SalvaImagemFisica($arr){
-
+		function SalvaImagemFisica($files){
 			//Busca Ultimo id dos produtos
+			$idproduto = $this->BuscaIdProduto();
+
+			for ($i = 0; $i < sizeof($files); $i++){ 
+				//Salva foto no caminho com nome correto
+				preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $files[$i]["name"], $ext);
+				$caminho_foto = "arq/produtos/".md5(uniqid(time())).'.'.$ext[1];
+				move_uploaded_file($files[$i]["tmp_name"], $caminho_foto);
+				//Salva em c_fotos
+				$SqlBanco = "Insert Into c_fotos (idproduto ,caminho) VALUES ('".$idproduto."','".$caminho_foto."')";
+				$result2 = parent::Execute($SqlBanco);
+			}	
+		}
+		
+
+		function BuscaIdProduto(){
 			$Sql = " select MAX(idproduto) as idproduto FROM c_produtos ";
 			$result = parent::Execute($Sql);
 			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
@@ -27,15 +41,7 @@
 				$rs['idproduto'] = 0;
 			}
 			$ultimoid = $rs['idproduto'] + 1;
-
-			//Salva foto no caminho com nome correto
-			preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $arr["name"], $ext);
-			$caminho_foto = "arq/produtos/".$ultimoid.'.'.$ext[1];
-			move_uploaded_file($arr["tmp_name"], $caminho_foto);
-
-			//Salva em c_fotos
-			$SqlBanco = "Insert Into c_fotos (idproduto ,caminho) VALUES ('".$ultimoid."','".$caminho_foto."')";
-			$result2 = parent::Execute($SqlBanco);
+			return $ultimoid;
 		}
 
 		function MontaSelectProdutos(){

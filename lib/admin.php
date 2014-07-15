@@ -12,9 +12,20 @@
 		$produto['valorcompra'] = strip_tags(trim(addslashes($_POST["valorcompra"])));
 		$produto['de'] = strip_tags(trim(addslashes($_POST["de"])));
 		$produto['valorvenda'] = strip_tags(trim(addslashes($_POST["valorvenda"])));
-		$produto['foto'] = $_FILES["foto"];
+		$myfiles = $_FILES['foto'];
 
-		$msg = $banco->InsereProduto($produto);
+		for( $i = 0; $i < count( $myfiles[ 'name' ] ); $i++ )
+		{
+    		$files[ ] = array(
+         	'name'     => $myfiles[ 'name' ] [ $i ],
+         	'type'     => $myfiles[ 'type' ] [ $i ],
+         	'tmp_name' => $myfiles[ 'tmp_name' ] [ $i ],
+         	'error'    => $myfiles[ 'error' ] [ $i ],
+         	'size'     => $myfiles[ 'size' ] [ $i ]
+     		);
+		}
+
+		$msg = $banco->InsereProduto($produto,$files);
 
 		if($msg == 'ok'){
 			$msg = MSG_OK_PRODUTO_CADASTRADO;

@@ -139,7 +139,11 @@
 
 		#funcao imprime conteudo
 		function Imprime($Conteudo){
-			$SaidaHtml = $this->CarregaHtml('modelo');
+			if($this->Pagina == 'admin'){
+				$SaidaHtml = $this->CarregaHtml('modelo-admin');
+			}else{
+				$SaidaHtml = $this->CarregaHtml('modelo');
+			}
 			$SaidaHtml = $this->InfoSacola($SaidaHtml,$Conteudo);
 			$SaidaHtml = $this->InfoUsuario($SaidaHtml,$Conteudo);
 			$SaidaHtml = str_replace('<%CONTEUDO%>',$Conteudo,$SaidaHtml);
