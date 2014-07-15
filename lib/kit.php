@@ -33,6 +33,6 @@
 	$Conteudo = str_replace('<%IDKIT%>', $nomekit, $Conteudo);
 	$Conteudo = str_replace('<%NOMEKIT%>', $nomekit, $Conteudo);
 	$Conteudo = str_replace('<%DESCRICAOITENS%>', $Descricao, $Conteudo);
-	$Conteudo = str_replace('<%IMAGENS%>', $Descricao, $Conteudo);
+	$Conteudo = str_replace('<%IMAGENS%>', $Imagens, $Conteudo);
 	$Conteudo = str_replace('<%TOTAL%>', $Total, $Conteudo);
 ?>
