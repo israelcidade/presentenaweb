@@ -27,5 +27,6 @@
 	$Conteudo = $banco->CarregaHtml('kit');
 	$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);
 	$Conteudo = str_replace('<%IDKIT%>', $nomekit, $Conteudo);
+	$Conteudo = str_replace('<%NOMEKIT%>', $nomekit, $Conteudo);
 	$Conteudo = str_replace('<%DESCRICAOITENS%>', $Descricao, $Conteudo);
 ?>

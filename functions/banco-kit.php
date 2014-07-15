@@ -21,12 +21,18 @@
 
 		function MontaDescricao($nomekit){
 			$Auxilio = parent::CarregaHtml('itens/descricao-itens');
-
-			$Sql = "Select * from c_kits where nome = '".$nomekit."' ";
+			
+			$Sql = "Select P.*, K.*
+					FROM c_produtos P
+					INNER JOIN c_kits K ON P.idproduto = K.idproduto
+					AND K.nome = 'pai-esportista' ";
 			$result = $this->Execute($Sql);
 			$num_rows = $this->Linha($result);
 			while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
+				$cont++;
 				$Linha = $Auxilio;
+				$Linha = str_replace('<%DESCRICAO%>',$rs['descricao'],$Linha);
+				$Linha = str_replace('<%CONT%>',$cont,$Linha);
 				$Itens .= $Linha;
 			}
 
