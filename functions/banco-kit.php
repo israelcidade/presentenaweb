@@ -31,7 +31,7 @@
 			while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
 				$cont++;
 				$Linha = $Auxilio;
-				$Linha = str_replace('<%DESCRICAO%>',$rs['descricao'],$Linha);
+				$Linha = str_replace('<%DESCRICAO%>',utf8_encode($rs['descricao']),$Linha);
 				$Linha = str_replace('<%CONT%>',$cont,$Linha);
 				$Itens .= $Linha;
 			}
