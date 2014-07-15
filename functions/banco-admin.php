@@ -29,7 +29,7 @@
 				//Salva em c_fotos
 				$SqlBanco = "Insert Into c_fotos (idproduto ,caminho) VALUES ('".$idproduto."','".$caminho_foto."')";
 				$result2 = parent::Execute($SqlBanco);
-			}	
+			}
 		}
 		
 
