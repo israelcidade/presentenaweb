@@ -5,7 +5,11 @@
 	#Instancia o objeto
 	$banco = new bancokit();
 
-	$nomekit = $this->PaginaAux[0];
+	if($nomekit = $this->PaginaAux[0]){
+		$Descricao = $banco->MontaDescricao($nomekit);
+	}else{
+		$banco->RedirecionaPara('inicio');
+	}
 
 	if(isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'sacola'){
 		//Recebe o kit escolhido e joga ele na SACOLA.
@@ -20,8 +24,6 @@
 			$msg = MSG_ERRO_ADICIONAR_SACOLA;
 		}
 	}
-
-	$Descricao = $banco->MontaDescricao($nomekit);
 
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('kit');
