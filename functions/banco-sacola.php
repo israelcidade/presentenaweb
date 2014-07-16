@@ -5,7 +5,11 @@
 			$Banco_Vazio = "Banco esta Vazio";
 
 			foreach ($arr as $value){
-				$Sql = "Select * from c_produtos where idproduto = '".$value."' ";
+				$Sql = "Select P.*, F.* from c_produtos P
+						INNER JOIN c_fotos F 
+						ON P.idproduto = F.idproduto
+						Where F.principal = '1'
+						And p.idproduto = '".$value."' ";
 				$result = parent::Execute($Sql);
 				$num_rows = parent::Linha($result);
 				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
@@ -14,6 +18,7 @@
 				$Linha = str_replace('<%ID%>',$rs['idproduto'],$Linha);
 				$Linha = str_replace('<%NOME%>',$rs['nome'],$Linha);
 				$Linha = str_replace('<%URLPADRAO%>',UrlPadrao,$Linha);
+				$Linha = str_replace('<%CAMINHO%>',$rs['caminho'],$Linha);
 				$Linha = str_replace('<%VALORVENDA%>',str_replace('.', ',',$rs['valorvenda']),$Linha);
 				$Produtos .= $Linha;
 			}
