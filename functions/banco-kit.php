@@ -58,7 +58,38 @@
 	         	'nome' 			=> $rs['nome']
 	     		);
 			}
+
+			$result = count($files);
+			$LinhaPrincipal = $Auxilio2;
+			switch ($result) {
+				case 3:
+					echo 'array com 3';
+				break;
+				case 6:
+					for ($i=0; $i <= 2; $i++) { 
+						$Fotos = $Auxilio1;
+						$Fotos = str_replace('<%CAMINHO%>',$files[$i]['caminho'],$Fotos);
+						$Fotos = str_replace('<%URLPADRAO%>',UrlPadrao,$Fotos);
+						$FotosFinal .= $Fotos;
+					}
+					$LinhaPrincipal = str_replace('<%FOTOS%>',$FotosFinal,$LinhaPrincipal);
+					$LinhaPrincipal2 .= $Auxilio2;
+					for ($i=3; $i <=5 ; $i++) { 
+						$Fotos = $Auxilio1;
+						$Fotos = str_replace('<%CAMINHO%>',$files[$i]['caminho'],$Fotos);
+						$Fotos = str_replace('<%URLPADRAO%>',UrlPadrao,$Fotos);
+						$FotosFinal .= $Fotos;
+					}
+					$LinhaPrincipal2 = str_replace('<%FOTOS%>',$FotosFinal,$LinhaPrincipal);
+					$LinhaPrincipal .= $LinhaPrincipal2;
+				break;
+				case 9:
+					echo 'array com 9';
+				break;
+			}
+			return $LinhaPrincipal;
 			
+			/*
 			$LinhaPrincipal = $Auxilio2;
 			$Fotos = $Auxilio1;
 			$Fotos = str_replace('<%CAMINHO%>',$files[0]['caminho'],$Fotos);
@@ -71,6 +102,7 @@
 			$Fotos = str_replace('<%URLPADRAO%>',UrlPadrao,$Fotos);
 			$LinhaPrincipal = str_replace('<%FOTOS%>',$Fotos,$LinhaPrincipal);
 			return $LinhaPrincipal;
+			*/
 
 
 		}
