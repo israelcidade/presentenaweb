@@ -61,6 +61,7 @@
 
 			$result = count($files);
 			$LinhaPrincipal = $Auxilio2;
+			$cont = 0;
 			switch ($result) {
 				case 3:
 					echo 'array com 3';
@@ -70,17 +71,19 @@
 						$Fotos = $Auxilio1;
 						$Fotos = str_replace('<%CAMINHO%>',$files[$i]['caminho'],$Fotos);
 						$Fotos = str_replace('<%URLPADRAO%>',UrlPadrao,$Fotos);
-						$FotosFinal .= $Fotos;
+						$FotosFinal1 .= $Fotos;
 					}
-					$LinhaPrincipal = str_replace('<%FOTOS%>',$FotosFinal,$LinhaPrincipal);
+					$LinhaPrincipal = str_replace('<%FOTOS%>',$FotosFinal1,$LinhaPrincipal);
+					$LinhaPrincipal = str_replace('<%CONT%>','1',$LinhaPrincipal);
 					$LinhaPrincipal2 .= $Auxilio2;
 					for ($i=3; $i <=5 ; $i++) { 
 						$Fotos = $Auxilio1;
 						$Fotos = str_replace('<%CAMINHO%>',$files[$i]['caminho'],$Fotos);
 						$Fotos = str_replace('<%URLPADRAO%>',UrlPadrao,$Fotos);
-						$FotosFinal .= $Fotos;
+						$FotosFinal2 .= $Fotos;
 					}
-					$LinhaPrincipal2 = str_replace('<%FOTOS%>',$FotosFinal,$LinhaPrincipal);
+					$LinhaPrincipal2 = str_replace('<%FOTOS%>',$FotosFinal2,$LinhaPrincipal2);
+					$LinhaPrincipal2 = str_replace('<%CONT%>','2',$LinhaPrincipal2);
 					$LinhaPrincipal .= $LinhaPrincipal2;
 				break;
 				case 9:
@@ -103,8 +106,6 @@
 			$LinhaPrincipal = str_replace('<%FOTOS%>',$Fotos,$LinhaPrincipal);
 			return $LinhaPrincipal;
 			*/
-
-
 		}
 
 		function MontaTotal($nomekit){
