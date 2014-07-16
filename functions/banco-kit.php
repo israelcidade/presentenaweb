@@ -40,9 +40,24 @@
 		}
 
 		function MontaImagens($nomekit){
-			$Fotos = parent::CarregaHtml('itens/fotos-itens');
-			$LinhaFotos = parent::CarregaHtml('itens/imagens-itens');
+			$Auxilio1= parent::CarregaHtml('itens/fotos-itens');
+			$Auxilio2 = parent::CarregaHtml('itens/imagens-itens');
 
+			$Sql = "Select K.* , F.*, P.nome
+					From c_kits K
+					Inner join c_fotos F ON F.idproduto = K.idproduto 
+					Inner join c_produtos P ON p.idproduto = F.idproduto
+					AND K.nome = '".$nomekit."'";	
+			$result = parent::Execute($Sql);
+			$num_rows = parent::Linha($result);
+			
+			while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
+				$files[ ] = array(
+	         	'idproduto'     => $rs['idproduto'],
+	         	'caminho'     	=> $rs['caminho'],
+	         	'nome' 			=> $rs['nome']
+	     		);
+			}
 			
 		}
 
