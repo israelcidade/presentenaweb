@@ -59,6 +59,20 @@
 	     		);
 			}
 			
+			$LinhaPrincipal = $Auxilio2;
+			$Fotos = $Auxilio1;
+			$Fotos = str_replace('<%CAMINHO%>',$files[0]['caminho'],$Fotos);
+			$Fotos = str_replace('<%URLPADRAO%>',UrlPadrao,$Fotos);
+			$Fotos .= $Auxilio1;
+			$Fotos = str_replace('<%CAMINHO%>',$files[1]['caminho'],$Fotos);
+			$Fotos = str_replace('<%URLPADRAO%>',UrlPadrao,$Fotos);
+			$Fotos .= $Auxilio1;
+			$Fotos = str_replace('<%CAMINHO%>',$files[2]['caminho'],$Fotos);
+			$Fotos = str_replace('<%URLPADRAO%>',UrlPadrao,$Fotos);
+			$LinhaPrincipal = str_replace('<%FOTOS%>',$Fotos,$LinhaPrincipal);
+			return $LinhaPrincipal;
+
+
 		}
 
 		function MontaTotal($nomekit){
