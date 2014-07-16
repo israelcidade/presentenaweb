@@ -26,8 +26,11 @@
 
 	$Produtos = $banco->ListaProdutosSacola($_SESSION['sacola'],$Auxilio);
 
+	$Total = $banco->ValorTotal($_SESSION['sacola']);
+
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('sacola');
 	$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);
 	$Conteudo = str_replace('<%PRODUTOS%>', $Produtos, $Conteudo);
+	$Conteudo = str_replace('<%TOTAL%>', $Total, $Conteudo);
 ?>

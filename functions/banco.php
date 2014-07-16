@@ -187,7 +187,7 @@
 				$total = $total + $rs['valorvenda'];
 				}
 			}
-			
+			$total = str_replace('.',',',$total);
 			$SaidaHtml = str_replace('<%QUANTIDADE%>',$i,$SaidaHtml);
 			$SaidaHtml = str_replace('<%TOTAL%>',$total,$SaidaHtml);
 			return $SaidaHtml;

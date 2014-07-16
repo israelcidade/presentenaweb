@@ -13,7 +13,8 @@
 				$Linha = $Auxilio;
 				$Linha = str_replace('<%ID%>',$rs['idproduto'],$Linha);
 				$Linha = str_replace('<%NOME%>',$rs['nome'],$Linha);
-				$Linha = str_replace('<%VALORVENDA%>',$rs['valorvenda'],$Linha);
+				$Linha = str_replace('<%URLPADRAO%>',UrlPadrao,$Linha);
+				$Linha = str_replace('<%VALORVENDA%>',str_replace('.', ',',$rs['valorvenda']),$Linha);
 				$Produtos .= $Linha;
 			}
 
@@ -25,6 +26,18 @@
 			$key = array_search($id,$_SESSION['sacola']);
 			unset($_SESSION['sacola'][$key]);
 			return 'ok';
+		}
+
+		function ValorTotal($arr){
+			foreach ($arr as $value) {
+				$Sql = "Select * from c_produtos where idproduto = '".$value."' ";
+				$result = parent::Execute($Sql);
+				$num_rows = parent::Linha($result);
+				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+				$total = $total + $rs['valorvenda'];
+			}
+			$total = str_replace('.',',',$total);
+			return $total;
 		}
 	}
 ?>
