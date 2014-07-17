@@ -99,10 +99,15 @@
     $(document).ready(function(){
     $("form").submit(function(){
       //Salvar Dados de Endereco no Banco e chamar o pagseguro!
-      alert('teste');
-      });
-    });
-  
+      $.post("<%URLPADRAO%>lib/ajax/salvaendereco.php",
+            {},
+                function(retorno){
+                alert('retornei');
+
+            }//fecha function retorno
+        );//Fecha post
+      });//fecha form.submit
+    });//fecha function
 </script>
 
 <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
