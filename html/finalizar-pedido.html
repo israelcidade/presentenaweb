@@ -51,16 +51,20 @@
                  action="https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html" onsubmit="PagSeguroLightbox(this); return false;">  
           
                 <!-- Campos obrigatórios -->  
-                <input name="receiverEmail" type="hidden" value="contato@presentenaweb.com.br">  
+                <input name="receiverEmail" type="hidden" value="suporte@lojamodelo.com.br">  
                 <input name="currency" type="hidden" value="BRL">  
           
                 <!-- Itens do pagamento (ao menos um item é obrigatório) -->  
-                 <%ITENSPAGSEGURO%>
+                <%ITENSPAGSEGURO%>
           
                 <!-- Código de referência do pagamento no seu sistema (opcional) -->  
-                <input name="reference" type="hidden" value="<%REF%>">
+                <input name="reference" type="hidden" value="123">
 
-                <!-- Dados do comprador (opcionais) -->  
+                <!-- Informações de frete (opcionais) -->  
+                <input name="shippingType" type="hidden" value="1">  
+                <input name="shippingAddressPostalCode" type="hidden" value="">   
+
+                <!-- Dados do comprador (opcionais) -->
                 <%ITENSPAGSEGUROCOMPRADOR%>  
           
                 <!-- submit do form (obrigatório) -->  

@@ -31,19 +31,17 @@
 		}
 
 		function MontaItensComprador($var){
-
 			$Sql = "Select * from c_usuarios where email = '".$var."'";
-
 			$result = $this->Execute($Sql);
 			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
-			
 			$Auxilio = parent::CarregaHtml('itens/pagseguro-comprador-itens');
 			$Linha = $Auxilio;
 			$Linha = str_replace('<%NOME%>',$rs['nome'],$Linha);
 			$Linha = str_replace('<%EMAIL%>',$rs['email'],$Linha);
 			$Linha = str_replace('<%CPF%>',$rs['cpf'],$Linha);
 			$Produtos = $Linha;
+			
+			return $Produtos;
 		}
-		return $Produtos;
 	}
 ?>
