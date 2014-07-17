@@ -9,18 +9,20 @@
     <div class="container">
         <div class="text-page form1 white-bg">
 	        <h2>Meus Dados</h2>
+            <form method="post" action="">
+            <input type="hidden" name="acao" value="finalizar">
             <table width="100%" border="0">
               <tr>
                 <td style="width:20%;"><label>Nome completo:</label></td>
-                <td style="width:30%;"><input class="input-group" type="text"></td>
+                <td style="width:30%;"><input class="input-group" type="text" name="nome-completo"></td>
                 <td class="text-right" style="width:20%;"><label>E-mail:</label></td>
-                <td style="width:30%;"><input class="input-group" type="text"></td>
+                <td style="width:30%;"><input class="input-group" type="text" name="email"></td>
               </tr>
               <tr>
                 <td><label>CPF:</label></td>
-                <td><input class="input-group" type="text"></td>
+                <td><input class="input-group" type="text" name="cpf"></td>
                 <td class="text-right"><label>Telefone:</label></td>
-                <td><input class="input-group" type="text"></td>
+                <td><input class="input-group" type="text" name="telefone"></td>
               </tr>
             </table>
             
@@ -28,31 +30,32 @@
             <table width="100%" border="0">
               <tr>
                 <td style="width:20%;"><label>Nome destinatario:</label></td>
-                <td style="width:30%;"><input class="input-group" type="text"></td>
+                <td style="width:30%;"><input class="input-group" type="text" name="nome-destinatario"></td>
                 <td class="text-right" style="width:20%;"><label>CEP:</label></td>
-                <td style="width:30%;"><input class="input-group" type="text"></td>
+                <td style="width:30%;"><input class="input-group" type="text" name="cep"></td>
+                <a href="javascript:void(0);" onClick="buscacep()">Buscar Cep</a>
               </tr>
               <tr>
                 <td><label>Endereco de entrega:</label></td>
-                <td colspan="3"><input class="input-group" type="text"></td>
+                <td colspan="3"><input class="input-group" type="text" name="endereco-entrega"></td>
               </tr>
               <tr>
                 <td><label>Numero:</label></td>
-                <td><input class="input-group" type="text"></td>
+                <td><input class="input-group" type="text" name="numero"></td>
                 <td class="text-right"><label>Complemento:</label></td>
-                <td><input class="input-group" type="text"></td>
+                <td><input class="input-group" type="text" name="complemento"></td>
               </tr>
               <tr>
                 <td><label>Bairro:</label></td>
-                <td><input class="input-group" type="text"></td>
+                <td><input class="input-group" type="text" name="bairro"></td>
                 <td class="text-right"><label>Cidade:</label></td>
-                <td><input class="input-group" type="text"></td>
+                <td><input class="input-group" type="text" name="cidade"></td>
               </tr>
               <tr>
                 <td><label>Estado:</label></td>
-                <td><input class="input-group" type="text"></td>
+                <td><input class="input-group" type="text" name="estado"></td>
                 <td class="text-right"><label>Pais:</label></td>
-                <td><input class="input-group" type="text"></td>
+                <td><input class="input-group" type="text" value="Brasil" disabled></td>
               </tr>
             </table>
 			
@@ -64,7 +67,8 @@
                 Place logo here...
               </label>
             </div>
-            <div class="text-right"><input type="button" class="btn btn-danger btn-lg" value="ENVIAR PEDIDO"></div>
+            <div class="text-right"><button type="submit" class="btn btn-danger btn-lg">ENVIAR PEDIDO</button></div>
+          </form>
         </div>
     </div>
 </div>
