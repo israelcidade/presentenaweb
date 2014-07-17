@@ -98,11 +98,27 @@
 <script type="text/javascript">
     $(document).ready(function(){
     $("form").submit(function(){
+      
+      var endereco = [
+                    $("input[name=nome-destinatario]").val(),
+                    $("input[name=cep]").val(),
+                    $("input[name=endereco-entrega]").val(),
+                    $("input[name=numero]").val(),
+                    $("input[name=complemento]").val(),
+                    $("input[name=bairro]").val(),
+                    $("input[name=cidade]").val(),
+                    $("input[name=estado]").val(),
+                    $("input[name=pais]").val(),
+                  ];
+      for (var i = 0; i < endereco.length; i++) {
+        alert(endereco[i]);
+      };
+      
       //Salvar Dados de Endereco no Banco e chamar o pagseguro!
       $.post("<%URLPADRAO%>lib/ajax/salvaendereco.php",
             {},
                 function(retorno){
-                alert('retornei');
+                
 
             }//fecha function retorno
         );//Fecha post
