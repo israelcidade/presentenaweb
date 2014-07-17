@@ -8,25 +8,10 @@
 <div class="page-wrapper">
     <div class="container">
         <div class="text-page form1 white-bg">
-	        <h2>Meus Dados</h2>
             <form method="post" action="">
             <input type="hidden" name="acao" value="finalizar">
-            <table width="100%" border="0">
-              <tr>
-                <td style="width:20%;"><label>Nome completo:</label></td>
-                <td style="width:30%;"><input class="input-group" type="text" name="nome-completo"></td>
-                <td class="text-right" style="width:20%;"><label>E-mail:</label></td>
-                <td style="width:30%;"><input class="input-group" type="text" name="email"></td>
-              </tr>
-              <tr>
-                <td><label>CPF:</label></td>
-                <td><input class="input-group" type="text" name="cpf"></td>
-                <td class="text-right"><label>Telefone:</label></td>
-                <td><input class="input-group" type="text" name="telefone"></td>
-              </tr>
-            </table>
-            
-          <h2>Endereco</h2>
+
+          <h2>Endereço de Entrega</h2>
             <table width="100%" border="0">
               <tr>
                 <td style="width:20%;"><label>Nome destinatario:</label></td>
@@ -42,11 +27,11 @@
               </td>
               </tr>
               <tr>
-                <td><label>Endereco de entrega:</label></td>
+                <td><label>Endereço:</label></td>
                 <td colspan="3"><input class="input-group" type="text" name="endereco-entrega" readonly="true"></td>
               </tr>
               <tr>
-                <td><label>Numero:</label></td>
+                <td><label>Número:</label></td>
                 <td><input class="input-group" type="text" name="numero"></td>
                 <td class="text-right"><label>Complemento:</label></td>
                 <td><input class="input-group" type="text" name="complemento"></td>
@@ -60,20 +45,11 @@
               <tr>
                 <td><label>Estado:</label></td>
                 <td><input class="input-group" type="text" name="estado" readonly="true"></td>
-                <td class="text-right"><label>Pais:</label></td>
-                <td><input class="input-group" type="text" value="Brasil" readonly="true"></td>
+                <td class="text-right"><label>País:</label></td>
+                <td><input class="input-group" type="text" name="pais" value="Brasil" readonly="true"></td>
               </tr>
             </table>
-			
-            <h2>Pagamento</h2>
-            <div class="pull-left" style="padding-left:15px; padding-right:55px;">Forma de pagamento: </div>
-            <div class="radio">
-              <label> 
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                Place logo here...
-              </label>
-            </div>
-            <div class="text-right"><button type="submit" class="btn btn-danger btn-lg">ENVIAR PEDIDO</button></div>
+			     <div class="text-right"><button type="submit" class="btn btn-danger btn-lg">IR PARA PAGAMENTO</button></div>            
           </form>
         </div>
     </div>

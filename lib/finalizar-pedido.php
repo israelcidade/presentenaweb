@@ -13,6 +13,7 @@
 		}
 
 		$msg = $banco->FinalzarCompra($pedido,$_SESSION['idusuario'],$_SESSION['sacola']);
+		
 
 	}
 
