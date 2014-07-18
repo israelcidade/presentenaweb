@@ -52,7 +52,7 @@
                  onsubmit="PagSeguroLightbox(this); return false;">  
           
                 <!-- Campos obrigatórios -->  
-                <input name="receiverEmail" type="hidden" value="suporte@lojamodelo.com.br">  
+                <input name="receiverEmail" type="hidden" value="israelcbj@gmail.com">  
                 <input name="currency" type="hidden" value="BRL">  
           
                 <!-- Itens do pagamento (ao menos um item é obrigatório) -->  
@@ -62,8 +62,15 @@
                 <input name="reference" type="hidden" value="123">
 
                 <!-- Informações de frete (opcionais) -->  
-                <input name="shippingType" type="hidden" value="1">  
-                <input name="shippingAddressPostalCode" type="hidden" value="">   
+                <input name="shippingType" type="hidden" value="3">  
+                <input name="shippingAddressPostalCode" type="hidden" value="">  
+                <input name="shippingAddressStreet" type="hidden" value="">  
+                <input name="shippingAddressNumber" type="hidden" value="">  
+                <input name="shippingAddressComplement" type="hidden" value="">  
+                <input name="shippingAddressDistrict" type="hidden" value="">  
+                <input name="shippingAddressCity" type="hidden" value="">  
+                <input name="shippingAddressState" type="hidden" value="">  
+                <input name="shippingAddressCountry" type="hidden" value="BRA">   
 
                 <!-- Dados do comprador (opcionais) -->
                 <%ITENSPAGSEGUROCOMPRADOR%>  
@@ -83,7 +90,6 @@
   function salva(){
     if(
       $("input[name=numero]").val() == '' || 
-      $("input[name=complemento]").val() == '' || 
       $("input[name=cep]").val() == '' || 
       $("input[name=nome-destinatario]").val() == ''){
       alert("Por favor, preencha todos os campos!");
@@ -104,12 +110,19 @@
               {endereco:endereco},
                   function(retorno){
                   if(retorno){
-                    $("input[name=reference]").val($("input[name=numero]").val());
+                    $("input[name=shippingAddressPostalCode]").val($("input[name=cep]").val());
+                    $("input[name=shippingAddressStreet]").val($("input[name=endereco-entrega]").val());
+                    $("input[name=shippingAddressNumber]").val($("input[name=numero]").val());
+                    $("input[name=shippingAddressComplement]").val($("input[name=complemento]").val());
+                    $("input[name=shippingAddressDistrict]").val($("input[name=bairro]").val());
+                    $("input[name=shippingAddressCity]").val($("input[name=cidade]").val());
+                    $("input[name=shippingAddressState]").val($("input[name=estado]").val());
+
                     $("form").submit();
                 }
               }//fecha function retorno
           );//Fecha post
-    }
+    }//fecha else
   }//fecha function
 </script>
 <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
