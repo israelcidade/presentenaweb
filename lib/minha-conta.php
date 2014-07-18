@@ -10,6 +10,6 @@
 		#Imprimi valores
 		$Conteudo = $banco->CarregaHtml('minha-conta');
 	}else{
-		$banco->RedirecionaPara('inicio/acesso-negado');
+		$banco->RedirecionaPara('cadastro/acesso-negado');
 	}
 ?>
