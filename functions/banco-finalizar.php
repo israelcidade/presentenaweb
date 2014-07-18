@@ -24,7 +24,6 @@
 				$Linha = str_replace('<%NOME%>',$rs['nome'],$Linha);
 				$Linha = str_replace('<%VALOR%>',$rs['valorvenda'],$Linha);
 				$Linha = str_replace('<%QTD%>','1',$Linha);
-				$Linha = str_replace('<%PESO%>','100',$Linha);
 				$Produtos .= $Linha;
 			}
 			return $Produtos;
