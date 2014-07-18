@@ -194,19 +194,28 @@
 		}
 
 		function InfoUsuario($SaidaHtml,$Conteudo){
-			$deslogar = '';
 			$usuario = '';
+			$deslogar = "Bem vindo: ".$_SESSION['usuario']." <a href='".UrlPadrao."inicio/deslogar'>(Sair)</a>";
+			$minhaconta = "<a href='".UrlPadrao."minha-conta'>Minha Conta</a>";
+			$entrar = "<a href='".UrlPadrao."cadastro'>Entrar</a>";
+			$cadastro = "<a href='".UrlPadrao."cadastro'>Cadastre-se</a>";
 			if($this->VerificaSessao()){
-				$deslogar = "<a href='".UrlPadrao."inicio/deslogar/' onClick=\"return confirm('Tem certeza que deseja deslogar ?')\" >Deslogar</a>";
+				//Variaveis se Tiver Logado
 				$usuario = $_SESSION['usuario'];
+
 				$SaidaHtml = str_replace('<%SAIR%>',$deslogar,$SaidaHtml);
 				$SaidaHtml = str_replace('<%USUARIO%>',$usuario,$SaidaHtml);
+				$SaidaHtml = str_replace('<%ENTRAR%>',$minhaconta,$SaidaHtml);
+				$SaidaHtml = str_replace('<%CADASTRESE%>','',$SaidaHtml);
 			}else{
-				$SaidaHtml = str_replace('<%SAIR%>','Ol&aacute;',$SaidaHtml);
+				//Variaveis se estiver deslogado
+				$SaidaHtml = str_replace('<%SAIR%>','Ol&aacute;, Fique a Vontade!',$SaidaHtml);
+				$SaidaHtml = str_replace('<%ENTRAR%>',$entrar,$SaidaHtml);
+				$SaidaHtml = str_replace('<%CADASTRESE%>',$cadastro,$SaidaHtml);
 			}
 			return $SaidaHtml;
 		}
-
+//$deslogar = "Bem Vindo ".$_SESSION['usuario']." <a href='".UrlPadrao."inicio/deslogar/' onClick=\"return confirm('Tem certeza que deseja deslogar ?')\" > (Sair)</a>";
 		function FinalzarCompra($pedido){
 			$Sql = "Insert into c_pedidos (nomedestinatario,cep,enderecoentrega,numero,complemento,bairro,cidade,estado,pais) 
 			VALUES ('".$pedido['nome-destinatario']."','".$pedido['cep']."','".$pedido['endereco-entrega']."','".$pedido['numero']."','".$pedido['complemento']."','".$pedido['bairro']."','".$pedido['cidade']."','".$pedido['estado']."','".$pedido['pais']."')";

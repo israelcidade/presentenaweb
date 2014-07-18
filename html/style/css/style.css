@@ -40,6 +40,15 @@
 	clear:left;
 	line-height:1em;
 	color:#FFF;
+	padding-top: 5px;
+}
+
+.nav-left td{
+	width: 150px;
+	text-align: center;
+}
+.nav-left td a{
+	color: #fff;
 }
 
 .nav-right{
