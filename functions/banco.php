@@ -177,7 +177,9 @@
 			if(empty($_SESSION['sacola'])){
 				$i = 0;
 				$total = '000,00';
+				$cart = 'sad';
 			}else{
+				$cart = 'happy';
 				foreach ($_SESSION['sacola'] as $key => $value) {
 				$Sql = "Select * from c_produtos where idproduto = '".$value."'";
 				$result = $this->Execute($Sql);
@@ -190,6 +192,7 @@
 			$total = str_replace('.',',',$total);
 			$SaidaHtml = str_replace('<%QUANTIDADE%>',$i,$SaidaHtml);
 			$SaidaHtml = str_replace('<%TOTAL%>',$total,$SaidaHtml);
+			$SaidaHtml = str_replace('<%CART%>',$cart,$SaidaHtml);
 			return $SaidaHtml;
 		}
 
