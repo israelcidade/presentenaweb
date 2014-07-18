@@ -223,5 +223,13 @@
 			$num_rows = $this->Linha($result);
 			return 'ok';
 		}
+
+		function MontaMsg($tipo,$msg){
+			if($tipo == 'erro'){
+				$flag = "<div class='alert alert-danger' role='alert'>
+      			<strong>Erro!</strong> ".$msg." </div>";
+			}
+			return $flag;
+		}
 	}
 ?>

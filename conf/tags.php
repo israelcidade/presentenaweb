@@ -27,6 +27,7 @@
 	define('MSG_ERRO_SALVAR_PRODUTO','Erro ao Salvar o Produto.');
 	define('MSG_ERRO_SALVAR_KIT','Erro ao Salvar o Kit.');
 	define('MSG_ERRO_ADICIONAR_SACOLA','Erro ao Adicionar Kit na Sacola');
+	define('MSG_ERRO_ACESSO_NEGADO','Acesse ou crie uma conta para continuar navegando no site!');
 
 	//Mensagens de Ok
 	define('MSG_OK_USUARIO','Cadastro Realizado com Sucesso!');

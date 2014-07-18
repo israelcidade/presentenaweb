@@ -22,6 +22,6 @@
 		$Conteudo = str_replace('<%ITENSPAGSEGURO%>', $ItensPagSeguro, $Conteudo);
 		$Conteudo = str_replace('<%ITENSPAGSEGUROCOMPRADOR%>', $ItensPagSeguroComprador, $Conteudo);
 	}else{
-		$banco->RedirecionaPara('inicio/acesso-negado');
+		$banco->RedirecionaPara('cadastro/acesso-negado');
 	}
 ?>

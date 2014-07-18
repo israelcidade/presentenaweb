@@ -21,6 +21,10 @@
 			$msg = MSG_AVISO_ATIVAR;
 		}
 
+		if($this->PaginaAux[0] == 'acesso-negado'){
+			$msg = $banco->MontaMsg('erro',MSG_ERRO_ACESSO_NEGADO);
+		}
+
 		#Trabalha com Post de Login
 		if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'login'){
 		$email = strip_tags(trim(addslashes($_POST["email"])));
