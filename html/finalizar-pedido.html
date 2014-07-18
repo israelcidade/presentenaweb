@@ -18,7 +18,7 @@
                   <div style="float:left;">
                     <input style="width: 150px;" class="input-group" type="text" name="cep">
                   </div>
-                  <div style="float:right; padding-top: 5px; padding-right: 5px;">
+                  <div style="float:right; padding-top: 7px; padding-right: 7px;">
                     <a href="javascript:void(0);" onClick="buscacep()">Buscar Cep</a>
                   </div>
               </td>
@@ -46,9 +46,10 @@
                 <td><input class="input-group" type="text" name="pais" value="Brasil" readonly="true"></td>
               </tr>
             </table>
-            <h2>Pagamento</h2>
+            
             <form method="post" target="pagseguro"  
-                 action="https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html" onsubmit="PagSeguroLightbox(this); return false;">  
+                 action="https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html" 
+                 onsubmit="PagSeguroLightbox(this); return false;">  
           
                 <!-- Campos obrigatórios -->  
                 <input name="receiverEmail" type="hidden" value="suporte@lojamodelo.com.br">  
@@ -68,42 +69,48 @@
                 <%ITENSPAGSEGUROCOMPRADOR%>  
           
                 <!-- submit do form (obrigatório) -->  
-                <input alt="Pague com PagSeguro" name="submit"  type="image"  
-                src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/209x48-comprar-assina.gif"/>  
+                <div style="float:right;" onClick="salva()">
+                  <img src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/209x48-comprar-assina.gif"> 
+                </div>  
           
               </form>  
-			     <!-- <div class="text-right"><input type="submit" value="Submit"></div>  -->         
+			              <!-- type="image"  
+                src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/209x48-comprar-assina.gif"-->
         </div>
     </div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function(){
-    $("form").submit(function(){
-      
+  function salva(){
+    if(
+      $("input[name=numero]").val() == '' || 
+      $("input[name=complemento]").val() == '' || 
+      $("input[name=cep]").val() == '' || 
+      $("input[name=nome-destinatario]").val() == ''){
+      alert("Por favor, preencha todos os campos!");
+    }else{
       var endereco = 
-                    $("input[name=nome-destinatario]").val()+'/'+
-                    $("input[name=cep]").val()+'/'+
-                    $("input[name=endereco-entrega]").val()+'/'+
-                    $("input[name=numero]").val()+'/'+
-                    $("input[name=complemento]").val()+'/'+
-                    $("input[name=bairro]").val()+'/'+
-                    $("input[name=cidade]").val()+'/'+
-                    $("input[name=estado]").val()+'/'+
-                    $("input[name=pais]").val()
-                  ;
-
-
-      //Salvar Dados de Endereco no Banco e chamar o pagseguro!
-      $.post("<%URLPADRAO%>lib/ajax/salvaendereco.php",
-            {endereco:endereco},
-                function(retorno){
-                if(retorno){
+                      $("input[name=nome-destinatario]").val()+'/'+
+                      $("input[name=cep]").val()+'/'+
+                      $("input[name=endereco-entrega]").val()+'/'+
+                      $("input[name=numero]").val()+'/'+
+                      $("input[name=complemento]").val()+'/'+
+                      $("input[name=bairro]").val()+'/'+
+                      $("input[name=cidade]").val()+'/'+
+                      $("input[name=estado]").val()+'/'+
+                      $("input[name=pais]").val()
+                    ;
+        //Salvar Dados de Endereco no Banco e chamar o pagseguro!
+        $.post("<%URLPADRAO%>lib/ajax/salvaendereco.php",
+              {endereco:endereco},
+                  function(retorno){
+                  if(retorno){
+                    $("input[name=reference]").val($("input[name=numero]").val());
+                    $("form").submit();
                 }
-            }//fecha function retorno
-        );//Fecha post
-      });//fecha form.submit
-    });//fecha function
+              }//fecha function retorno
+          );//Fecha post
+    }
+  }//fecha function
 </script>
-
 <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
 
