@@ -685,3 +685,7 @@ footer .copyright-wrap .container{
 .cart-total a{
 	color: #4C4E50;
 }
+
+#button-mail{
+	float: right;
+}
