@@ -54,6 +54,7 @@
 				$result2 = $this->Execute($Sql);
 				$LinhaAux = $Auxilio2;
 
+				//Pra cada produtos lista todas as fotos dele e joga no HTML!
 				while ($rs2 = mysql_fetch_array($result2 , MYSQL_ASSOC)){
 					
 					$Fotos .= $Auxilio1;
@@ -67,8 +68,8 @@
 				$cont = $cont+1;
 				$Fotos = '';
 
-
 			}
+
 			return $LinhaPrincipal;
 			
 			/*
