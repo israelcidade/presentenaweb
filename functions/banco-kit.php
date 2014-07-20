@@ -69,7 +69,7 @@
 				$Fotos = '';
 
 			}
-
+		
 			return $LinhaPrincipal;
 			
 			/*

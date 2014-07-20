@@ -11,7 +11,7 @@
         <!--Left column-->
         	<div class="left">
                 <div class="image-holder">
-                    <div class="image red-bg"></div>
+                    <div class="image"><img id="minhaFoto" width="498px" height="300px" src=""></div>
                 </div>
                 <%IMAGENS%>
             </div>
@@ -41,12 +41,11 @@
                 
             </div>
         <!--Right column ends-->
-        
     </div>
 </div>
-<!--
-<form action="" method="post">
-	<input type ="hidden" name="acao" value="sacola">
-	<input type="hidden" name="idkit" value="<%IDKIT%>">
-	<button type="submit">Adicionar na Sacola</button>
-</form> -->
+<script type="text/javascript">
+function bigImg(x)
+{   
+    $("#minhaFoto").attr("src",x.src);
+}
+</script>
