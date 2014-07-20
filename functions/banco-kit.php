@@ -43,52 +43,31 @@
 			$Auxilio1= parent::CarregaHtml('itens/fotos-itens');
 			$Auxilio2 = parent::CarregaHtml('itens/imagens-itens');
 
-			$Sql = "Select K.* , F.*, P.nome
-					From c_kits K
-					Inner join c_fotos F ON F.idproduto = K.idproduto 
-					Inner join c_produtos P ON p.idproduto = F.idproduto
-					AND K.nome = '".$nomekit."'";	
-			$result = parent::Execute($Sql);
-			$num_rows = parent::Linha($result);
-			
-			while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
-				$files[ ] = array(
-	         	'idproduto'     => $rs['idproduto'],
-	         	'caminho'     	=> $rs['caminho'],
-	         	'nome' 			=> $rs['nome']
-	     		);
-			}
+			//Busca todos os produtos do kit
+			$Sql = "Select * from c_kits where nome = '".$nomekit."'";
+			$result = $this->Execute($Sql);
 
-			$result = count($files);
-			$LinhaPrincipal = $Auxilio2;
-			$cont = 0;
-			switch ($result) {
-				case 3:
-					echo 'array com 3';
-				break;
-				case 6:
-					for ($i=0; $i <= 2; $i++) { 
-						$Fotos = $Auxilio1;
-						$Fotos = str_replace('<%CAMINHO%>',$files[$i]['caminho'],$Fotos);
-						$Fotos = str_replace('<%URLPADRAO%>',UrlPadrao,$Fotos);
-						$FotosFinal1 .= $Fotos;
-					}
-					$LinhaPrincipal = str_replace('<%FOTOS%>',$FotosFinal1,$LinhaPrincipal);
-					$LinhaPrincipal = str_replace('<%CONT%>','1',$LinhaPrincipal);
-					$LinhaPrincipal2 .= $Auxilio2;
-					for ($i=3; $i <=5 ; $i++) { 
-						$Fotos = $Auxilio1;
-						$Fotos = str_replace('<%CAMINHO%>',$files[$i]['caminho'],$Fotos);
-						$Fotos = str_replace('<%URLPADRAO%>',UrlPadrao,$Fotos);
-						$FotosFinal2 .= $Fotos;
-					}
-					$LinhaPrincipal2 = str_replace('<%FOTOS%>',$FotosFinal2,$LinhaPrincipal2);
-					$LinhaPrincipal2 = str_replace('<%CONT%>','2',$LinhaPrincipal2);
-					$LinhaPrincipal .= $LinhaPrincipal2;
-				break;
-				case 9:
-					echo 'array com 9';
-				break;
+			//Lista eles individualmente e joga numa variavel para HTML
+			while ($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
+
+				$Sql = "Select * from c_fotos where idproduto = '".$rs['idproduto']."'";
+				$result2 = $this->Execute($Sql);
+				$LinhaAux = $Auxilio2;
+
+				while ($rs2 = mysql_fetch_array($result2 , MYSQL_ASSOC)){
+					
+					$Fotos .= $Auxilio1;
+					$Fotos = str_replace('<%CAMINHO%>',$rs2['caminho'],$Fotos);
+					$Fotos = str_replace('<%URLPADRAO%>',UrlPadrao,$Fotos);
+				}
+
+				$LinhaPrincipal .= $LinhaAux;
+				$LinhaPrincipal = str_replace('<%FOTOS%>',$Fotos,$LinhaPrincipal);
+				$LinhaPrincipal = str_replace('<%CONT%>',$cont+1,$LinhaPrincipal);
+				$cont = $cont+1;
+				$Fotos = '';
+
+
 			}
 			return $LinhaPrincipal;
 			
