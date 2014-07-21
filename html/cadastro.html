@@ -32,7 +32,7 @@
                         </label>
                     </div>
                     <button type="submit" class="btn btn-danger btn-lg">ENTRAR</button>
-                    <a href="#" style="margin-left:25px;">Esqueci a senha</a>
+                    <a href="javascript:Senha();" style="margin-left:25px;">Esqueci a senha</a>
                 </form>
             </div>
             
@@ -70,25 +70,20 @@
         </div>
     </div>
 </div>
-
-<!--
-tela cadastrooooooooo<br>
-<%MSG%>
-
-<br>
-<form action="" method="post">
-	<input type ="hidden" name="acao" value="login">
-	Email: <input type="text" name="email" placeholder=""><br>
-	Senha: <input type="password" name="senha" placeholder=""><br>
-	<button type="submit">Entrar</button>
-</form>
-
-<form action="" method="post">
-	<input type="hidden" name="acao" value="cadastro">
-	Nome: <input type="text" name="nome" placeholder=""><br>
-	Cpf: <input type="text" name="cpf" placeholder=""><br>
-	Email: <input type="text" name="email" placeholder=""><br>
-	Senha: <input type="password" name="senha" placeholder=""><br>
-	Confirma Senha: <input type="password" name="senha2" placeholder=""><br>
-	<button type="submit">Cadastrar</button>
-</form>-->
+<script type="text/javascript">
+function Senha(){
+    var email = prompt("Por Favor, Informe o seu Email!");
+        if(email == ''){
+            alert('Email Invalido!')
+        }else{
+            $.post("<%URLPADRAO%>lib/ajax/reenviaemail.php",
+            {email: email},
+            function(retorno){
+                if(retorno == 'emailerrado'){
+                    alert('Email Invalido!');
+                }
+            }    
+        );
+    }
+}
+</script>
