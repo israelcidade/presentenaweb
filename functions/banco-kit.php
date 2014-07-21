@@ -32,6 +32,9 @@
 				$cont++;
 				$Linha = $Auxilio;
 				$Linha = str_replace('<%DESCRICAO%>',utf8_encode($rs['descricao']),$Linha);
+				$Linha = str_replace('<%ALTURA%>',$rs['altura'],$Linha);
+				$Linha = str_replace('<%LARGURA%>',$rs['largura'],$Linha);
+				$Linha = str_replace('<%COMPRIMENTO%>',$rs['comprimento'],$Linha);
 				$Linha = str_replace('<%CONT%>',$cont,$Linha);
 				$Itens .= $Linha;
 			}
