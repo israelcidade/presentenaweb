@@ -29,14 +29,14 @@
 	define('MSG_ERRO_SALVAR_KIT','Erro ao Salvar o Kit.');
 	define('MSG_ERRO_ADICIONAR_SACOLA','Erro ao Adicionar Kit na Sacola');
 	define('MSG_ERRO_ACESSO_NEGADO','Acesse ou crie uma conta para continuar navegando no site!');
+	define('MSG_ERRO_SACOLA_VAZIA','Nenhum Presente na Sacola! :(');
 
 	//Mensagens de Ok
 	define('MSG_OK_USUARIO','Cadastro Realizado com Sucesso!');
 	define('MSG_OK_CONTA_ATIVADA','Conta Ativada com Sucesso!');
 	define('MSG_OK_PRODUTO_CADASTRADO','Produto Cadastrado com Sucesso!');
 	define('MSG_OK_KIT_CADASTRADO','KIT Cadastrado com sucesso!');
-	define('MSG_OK_KIT_ADICIONADO_SACOLA','KIT adicionado na sacola com sucesso');
-	define('MSG_OK_REMOVE_PRODUTO_SACOLA','Produto removido da sacola com sucesso.');
+	define('MSG_OK_KIT_ADICIONADO_SACOLA','Presentes adicionados na sacola! :)');
 
 	//Mensagens de Avisos
 	define('MSG_AVISO_ATIVAR','Por Favor, ative sua conta antes de acessar!');

@@ -18,11 +18,11 @@
 					$Linha = str_replace('<%NOME%>',utf8_encode($rs['nome']),$Linha);
 					$Linha = str_replace('<%URLPADRAO%>',UrlPadrao,$Linha);
 					$Linha = str_replace('<%CAMINHO%>',$rs['caminho'],$Linha);
-					$Linha = str_replace('<%VALORVENDA%>',str_replace('.', ',',$rs['valorvenda']),$Linha);
+					$Linha = str_replace('<%VALORVENDA%>',number_format($rs['valorvenda'], 2, ',', '.'),$Linha);
 					$Produtos .= $Linha;
 				}
 			}else{
-				
+				$Produtos = 'vazio'; 
 			}
 			return $Produtos;
 		}
