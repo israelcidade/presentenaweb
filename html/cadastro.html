@@ -74,13 +74,17 @@
 function Senha(){
     var email = prompt("Por Favor, Informe o seu Email!");
         if(email == ''){
-            alert('Email Invalido!')
+            alert('Email Invalido!');
         }else{
             $.post("<%URLPADRAO%>lib/ajax/reenviaemail.php",
             {email: email},
             function(retorno){
                 if(retorno == 'emailerrado'){
                     alert('Email Invalido!');
+                }else if(retorno == 'ok'){
+                    alert('Nova Senha enviada para seu email!');
+                }else if(retorno == 'false'){
+                    alert('Falha ao enviar Email com nova Senha');
                 }
             }    
         );

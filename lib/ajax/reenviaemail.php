@@ -8,8 +8,8 @@
 	$banco->Conecta();
 	
 	$email = $_POST["email"];
-	$assunto = $_POST["assunto"];
 	$Syntaxe='#^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,6}$#';  
+	
 	
 	if(preg_match($Syntaxe, $email)){
 		#Carrega classe MAILER
@@ -24,9 +24,7 @@
 		$mail->IsHTML(true);
 		$mail->Subject = "Contato Site Presente na Web";
 		$mail->Body = utf8_decode("
-			Nome: $nome<br>
-			Email: $email<br>
-			Assunto: $assunto<br>
+			teste
 			");
             
         // Validando a autenticação
