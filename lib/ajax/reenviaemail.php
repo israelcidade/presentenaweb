@@ -12,7 +12,11 @@
 	
 	
 	if(preg_match($Syntaxe, $email)){
-		#Carrega classe MAILER
+		$novaSenha = $banco->GeraCodigo('10',false,false,false);
+		$Sql = "Update c_usuarios set senha = '".$novaSenha."' where email = '".$email."'";
+		$result = $banco->Execute($Sql);
+
+		/*#Carrega classe MAILER
 		$mail = new PHPMailer();
 		// Charset para evitar erros de caracteres
 		$mail->Charset = 'UTF-8';
@@ -46,5 +50,8 @@
         }
 	}else{
 		echo 'emailerrado';
+	}*/
+	echo 'ok';
 	}
+	
 ?>
