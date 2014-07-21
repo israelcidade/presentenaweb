@@ -81,10 +81,12 @@ function Senha(){
             function(retorno){
                 if(retorno == 'emailerrado'){
                     alert('Email Invalido!');
-                }else if(retorno == 'ok'){
+                }else if(retorno == 'enviado'){
                     alert('Nova Senha enviada para seu email!');
                 }else if(retorno == 'false'){
                     alert('Falha ao enviar Email com nova Senha');
+                }else if(retorno == 'sememail'){
+                    alert('Email nao cadastado');
                 }
             }    
         );
