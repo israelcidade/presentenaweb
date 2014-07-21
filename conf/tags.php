@@ -21,7 +21,7 @@
 	define('MSG_ERRO_BANCO','Falha ao conectar no banco de dados, tente novamente mais tarde!');
 	define('MSG_ERRO_CPF_EXISTENTE','Ja possuimos um cadastro com esse cpf!');
 	define('MSG_ERRO_EMAIL_EXISTENTE','Ja possuimos um cadastro com esse email!');
-	define('MSG_ERRO_SENHA_DIFERENTE','Senhas diferentes');
+	define('MSG_ERRO_SENHA_DIFERENTE','Senhas diferentes!Por favor, preencha novamente!');
 	define('MSG_ERRO_SENHA_OU_EMAIL','Senha ou Email Invalidos');
 	define('MSG_ERRO_DISPARA_EMAIL','Erro ao disparar email com ativador');
 	define('MSG_ERRO_ATIVAR_CONTA','Erro ao Ativar conta! entre em contato.');

@@ -38,7 +38,7 @@
 			}elseif($this->BuscaEmail($usuario['email'])){
 				return $this->MontaMsg('erro',MSG_ERRO_EMAIL_EXISTENTE);
 			}elseif($usuario['senha'] != $usuario['senha2']){
-				return MSG_ERRO_SENHA_DIFERENTE;
+				return $this->MontaMsg('erro',MSG_ERRO_SENHA_DIFERENTE);
 			}elseif(!parent::Execute($Sql)){
 				return MSG_ERRO_BANCO;
 			}else{
