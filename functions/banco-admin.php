@@ -8,18 +8,19 @@
 				('','','".$produto['nome']."','".$produto['descricao']."','".$produto['valorcompra']."','".$produto['de']."','".$produto['valorvenda']."') 
 			";
 
-			$this->SalvaImagemFisica($files);
-
 			if($result = parent::Execute($Sql)){
+				$Sql = "Select idproduto from c_produtos Order by idproduto DESC LIMIT 0, 1";
+				$result = $this->Execute($Sql);
+				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+				$this->SalvaImagemFisica($files,$rs['idproduto']);
 				return 'ok';
+
 			}else{
 				return MSG_ERRO_SALVAR_PRODUTO;
 			}
 		}
 
-		function SalvaImagemFisica($files){
-			//Busca Ultimo id dos produtos
-			$idproduto = $this->BuscaIdProduto();
+		function SalvaImagemFisica($files,$idproduto){
 
 			for ($i = 0; $i < sizeof($files); $i++){ 
 				//Salva foto no caminho com nome correto
@@ -27,7 +28,8 @@
 				$caminho_foto = "arq/produtos/".md5(uniqid(time())).'.'.$ext[1];
 				move_uploaded_file($files[$i]["tmp_name"], $caminho_foto);
 				//Salva em c_fotos
-				$SqlBanco = "Insert Into c_fotos (idproduto ,caminho) VALUES ('".$idproduto."','".$caminho_foto."')";
+				$SqlBanco = "Insert Into c_fotos (idproduto ,caminho, principal) VALUES ('".$idproduto."','".$caminho_foto."','0')";
+				
 				$result2 = parent::Execute($SqlBanco);
 			}
 		}
