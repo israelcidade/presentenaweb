@@ -187,6 +187,7 @@
 				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 				$i++;
 				$total = $total + $rs['valorvenda'];
+				$total = number_format($total, 2, ',', '.');
 				}
 			}
 			$total = str_replace('.',',',$total);

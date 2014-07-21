@@ -40,7 +40,7 @@
 		}
 
 		#Trabalha com Post de Cadastro
-		if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'cadastro'){
+		if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'cadastrar'){
 			$usuario['nome'] = strip_tags(trim(addslashes($_POST["nome"])));
 			$usuario['cpf'] = strip_tags(trim(addslashes($_POST["cpf"])));
 			$usuario['email'] = strip_tags(trim(addslashes($_POST["email"])));

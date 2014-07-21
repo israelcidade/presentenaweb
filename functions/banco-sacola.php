@@ -15,7 +15,7 @@
 
 					$Linha = $Auxilio;
 					$Linha = str_replace('<%ID%>',$rs['idproduto'],$Linha);
-					$Linha = str_replace('<%NOME%>',$rs['nome'],$Linha);
+					$Linha = str_replace('<%NOME%>',utf8_encode($rs['nome']),$Linha);
 					$Linha = str_replace('<%URLPADRAO%>',UrlPadrao,$Linha);
 					$Linha = str_replace('<%CAMINHO%>',$rs['caminho'],$Linha);
 					$Linha = str_replace('<%VALORVENDA%>',str_replace('.', ',',$rs['valorvenda']),$Linha);
@@ -43,7 +43,7 @@
 				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 				$total = $total + $rs['valorvenda'];
 			}
-			$total = str_replace('.',',',$total);
+			$total = number_format($total, 2, ',', '.');
 			return $total;
 		}
 	}

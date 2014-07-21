@@ -8,9 +8,9 @@
 			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 
 			if(!$num_rows){
-				return MSG_ERRO_SENHA_OU_EMAIL;
+				return $this->MontaMsg('erro',MSG_ERRO_SENHA_OU_EMAIL);
 			}elseif($rs['ativo'] == '0'){
-				return MSG_AVISO_ATIVAR;
+				return $this->MontaMsg('erro',MSG_AVISO_ATIVAR);
 			}else{
 				return 'ok';
 			}  
@@ -23,11 +23,20 @@
 			return $num_rows;
 		}
 
+		function BuscaEmail($email){
+			$Sql = "Select * from c_usuarios where email = '".$email."' ";
+			$result = parent::Execute($Sql);
+			$num_rows = parent::Linha($result);
+			return $num_rows;
+		}
+
 		function InsereUsuario($usuario){
 			$Sql = "Insert into c_usuarios (nome,senha,cpf,email,ativo) VALUES ('".$usuario['nome']."','".$usuario['senha']."','".$usuario['cpf']."','".$usuario['email']."',0) ";
 			
 			if($this->BuscaUsuarioPorCpf($usuario['cpf'])){
-				return MSG_ERRO_CPF_EXISTENTE;
+				return $this->MontaMsg('erro',MSG_ERRO_CPF_EXISTENTE);
+			}elseif($this->BuscaEmail($usuario['email'])){
+				return $this->MontaMsg('erro',MSG_ERRO_EMAIL_EXISTENTE);
 			}elseif($usuario['senha'] != $usuario['senha2']){
 				return MSG_ERRO_SENHA_DIFERENTE;
 			}elseif(!parent::Execute($Sql)){
