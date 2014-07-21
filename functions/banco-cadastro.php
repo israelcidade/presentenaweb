@@ -40,14 +40,14 @@
 			}elseif($usuario['senha'] != $usuario['senha2']){
 				return $this->MontaMsg('erro',MSG_ERRO_SENHA_DIFERENTE);
 			}elseif(!parent::Execute($Sql)){
-				return MSG_ERRO_BANCO;
+				return $this->MontaMsg('erro',MSG_ERRO_BANCO);
 			}else{
 				$codigo = $this->InsereCodigo($usuario);
 				$flag = $this->DisparaEmailAtivador($usuario,$codigo);
 				if($flag == true){
 					return 'ok';
 				}else{
-					return MSG_ERRO_DISPARA_EMAIL;
+					return $this->MontaMsg('erro',MSG_ERRO_DISPARA_EMAIL);
 				}
 			}
 		}
@@ -124,9 +124,9 @@
 				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 				$Sql2 = "Update c_usuarios SET ativo = 1 where idusuario = '".$rs['idusuario']."' ";
 				$result2 = parent::Execute($Sql2);
-				return MSG_OK_CONTA_ATIVADA;
+				return $this->MontaMsg('ok',MSG_OK_CONTA_ATIVADA);
 			}else{
-				return MSG_ERRO_ATIVAR_CONTA;
+				return $this->MontaMsg('erro',MSG_ERRO_ATIVAR_CONTA);
 			}
 		}
 	}

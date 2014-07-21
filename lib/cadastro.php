@@ -18,7 +18,7 @@
 		}
 
 		if($this->PaginaAux[0] == "ativar"){
-			$msg = $banco->MontaMsg('erro',MSG_AVISO_ATIVAR);
+			$msg = $banco->MontaMsg('atencao',MSG_AVISO_ATIVAR);
 		}
 
 		if($this->PaginaAux[0] == 'acesso-negado'){

@@ -232,6 +232,12 @@
 			if($tipo == 'erro'){
 				$flag = "<div class='alert alert-danger' role='alert'>
       			<strong>Erro!</strong> ".$msg." </div>";
+			}elseif($tipo == 'ok'){
+				$flag = "<div class='alert alert-success' role='alert'>
+      			<strong>OK!</strong> ".$msg." </div>";
+			}elseif($tipo == 'atencao'){
+				$flag = "<div class='alert alert-warning' role='alert'>
+      			<strong>Aten&ccedil;&atilde;o!</strong> ".$msg." </div>";
 			}
 			return $flag;
 		}
