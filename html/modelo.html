@@ -30,14 +30,11 @@
 <div class="grey-bg">
     <div class="container">
         <div class="nav-left">
-            <table border="1">
+            <table border="0">
                 <tr>
-                    <td style="min-width: 200px;"><%SAIR%>
-                    </td>
-                    <td ><a href="<%URLPADRAO%>cadastro"><%ENTRAR%>
-                    </td>
-                    <td><a href="<%URLPADRAO%>cadastro"><%CADASTRESE%>
-                    </td>
+                    <td style="min-width: 200px;"><%SAIR%></td>
+                    <td><%ENTRAR%></td>
+                    <td><%CADASTRESE%></td>
                 </tr>
             </table>
             <!--<ul>
@@ -216,5 +213,27 @@
                 }
             }
         );
+    }
+
+    function AlterarSenha(){
+        var senhaantiga = prompt("Por Favor, Informe sua Senha Antiga!");
+        var novasenha = prompt("Por Favor, Informe a nova Senha!");
+        var repita = prompt("Por Favor, Repita a nova Senha!");
+
+        if(novasenha != repita){
+            alert ('erro01');
+        }else{
+           $.post("<%URLPADRAO%>lib/ajax/alterasenha.php",
+            {novasenha: novasenha},
+                function(retorno){
+                    
+                    if(retorno == 'senhaerrada'){
+                        alert('Senha Antiga Invalida!');
+                    }else if(retorno == 'ok'){
+                        alert('Senha Alterada com Sucesso!');
+                    }
+                }
+            );
+        }
     }
 </script>

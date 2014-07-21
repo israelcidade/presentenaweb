@@ -203,6 +203,7 @@
 			$minhaconta = "<a href='".UrlPadrao."minha-conta'>Minha Conta</a>";
 			$entrar = "<a href='".UrlPadrao."cadastro'>Entrar</a>";
 			$cadastro = "<a href='".UrlPadrao."cadastro'>Cadastre-se</a>";
+			$alterasenha = "<a href='javascript:AlterarSenha()'>Alterar Senha</a>";
 			if($this->VerificaSessao()){
 				//Variaveis se Tiver Logado
 				$usuario = $_SESSION['usuario'];
@@ -210,7 +211,7 @@
 				$SaidaHtml = str_replace('<%SAIR%>',$deslogar,$SaidaHtml);
 				$SaidaHtml = str_replace('<%USUARIO%>',$usuario,$SaidaHtml);
 				$SaidaHtml = str_replace('<%ENTRAR%>',$minhaconta,$SaidaHtml);
-				$SaidaHtml = str_replace('<%CADASTRESE%>','',$SaidaHtml);
+				$SaidaHtml = str_replace('<%CADASTRESE%>',$alterasenha,$SaidaHtml);
 			}else{
 				//Variaveis se estiver deslogado
 				$SaidaHtml = str_replace('<%SAIR%>','Ol&aacute;, Fique a Vontade!',$SaidaHtml);
