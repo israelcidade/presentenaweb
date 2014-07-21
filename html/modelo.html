@@ -216,21 +216,20 @@
     }
 
     function AlterarSenha(){
-        var senhaantiga = prompt("Por Favor, Informe sua Senha Antiga!");
+        var senhaantiga = prompt("Por Favor, Informe sua Senha Atual!");
         var novasenha = prompt("Por Favor, Informe a nova Senha!");
         var repita = prompt("Por Favor, Repita a nova Senha!");
 
         if(novasenha != repita){
-            alert ('erro01');
+            alert ('Nova senha invalida! Por favor, preencha novamente!');
         }else{
            $.post("<%URLPADRAO%>lib/ajax/alterasenha.php",
-            {novasenha: novasenha},
+            {senhaantiga: senhaantiga,novasenha: novasenha},
                 function(retorno){
-                    
                     if(retorno == 'senhaerrada'){
-                        alert('Senha Antiga Invalida!');
+                        alert('Senha atual incorreta!');
                     }else if(retorno == 'ok'){
-                        alert('Senha Alterada com Sucesso!');
+                        alert('Senha alterada com sucesso!');
                     }
                 }
             );

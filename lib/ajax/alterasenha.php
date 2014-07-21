@@ -7,8 +7,9 @@
 	
 	session_start('login');
 	$senha = $_POST['novasenha'];
+	$senhaantiga = $_POST['senhaantiga'];
 
-	$Sql = "Select senha from c_usuarios where senha = '".$senha."' AND email = '".$_SESSION['email']."'";
+	$Sql = "Select senha from c_usuarios where senha = '".$senhaantiga."' AND email = '".$_SESSION['email']."'";
 	$result = $banco->Execute($Sql);
 	$num_rows = $banco->Linha($result);
 	if($num_rows){
