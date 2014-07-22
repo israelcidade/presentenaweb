@@ -692,3 +692,8 @@ footer .copyright-wrap .container{
 #button-mail{
 	float: right;
 }
+
+.page-wrapper.line-bg {
+background: url(../images/home-bg.png);
+background-size: 100% 100%;
+}
