@@ -40,4 +40,5 @@
 
 	//Mensagens de Avisos
 	define('MSG_AVISO_ATIVAR','Por Favor, ative sua conta antes de acessar!');
+	define('MSG_AVISO_MINHA_CONTA_VAZIA','Nenhum Pedido Realizado!');
 ?>

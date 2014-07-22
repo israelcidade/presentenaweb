@@ -18,6 +18,9 @@
 					$Linha = str_replace('<%URLPADRAO%>',UrlPadrao,$Linha);
 					$Produtos .= $Linha;
 				}
+			}else{
+				$msg = parent::MontaMsg('atencao',MSG_AVISO_MINHA_CONTA_VAZIA);
+				$Produtos = "<tr><td colspan=5>".$msg."</td></tr>";
 			}
 			return $Produtos;
 		}

@@ -25,6 +25,11 @@
 	width: 960px;
 }
 
+.body{
+	background:#EAEAE7 url(../images/wrapper-bg.jpg);
+	background-size:cover;
+}
+
 .grey-bg{
 	background-color: #4C4E50;
 	min-height: 20px;
@@ -694,6 +699,11 @@ footer .copyright-wrap .container{
 }
 
 .page-wrapper.line-bg {
-background: url(../images/home-bg.png);
-background-size: 100% 100%;
+	background: url(../images/home-bg.png);
+	background-size: 100% 100%;
+}
+
+.footer-design {
+	width: 75%;
+	margin-left: auto;
 }
