@@ -10,9 +10,9 @@
 
 	session_start('sacola');
 
-	for ($i=0; $i < sizeof($_SESSION['sacola']); $i++) { 
-		$produtos .= $_SESSION['sacola'][$i].'/';
-		$Sql = "Select valorvenda from c_produtos where idproduto = '".$_SESSION['sacola'][$i]."'";
+	foreach ($_SESSION['sacola'] as $value) {
+		$produtos .= $value.'/';
+		$Sql = "Select valorvenda from c_produtos where idproduto = '".$value."'";
 		$result = $banco->Execute($Sql);
 		$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 		$total = $total + $rs['valorvenda'];

@@ -40,6 +40,7 @@
 				$i = array_search($rs['idproduto'], $_SESSION['sacola']);
 				unset($_SESSION['sacola'][$i]);
 			}
+			
 			return 'ok';
 		}
 
