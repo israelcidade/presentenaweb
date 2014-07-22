@@ -13,9 +13,13 @@
 	for ($i=0; $i < sizeof($_SESSION['sacola']); $i++) { 
 		$produtos .= $_SESSION['sacola'][$i].'/';
 	}
+
+	session_start('login');
+	$idusuario = $_SESSION['idusuario'];
 	
 	$aux = explode('/', $pedido);
 	$pedido = array(
+		'idusuario'         =>   $idusuario,
 		'nome-destinatario' =>   $aux[0],
 		'cep' 				=>   $aux[1],
 		'endereco-entrega' 	=>   $aux[2],
@@ -28,8 +32,9 @@
 		'produtos'			=>	 $produtos
 		);
 	
-	$Sql = "Insert into c_pedidos (nomedestinatario,cep,enderecoentrega,numero,complemento,bairro,cidade,estado,pais,produtos) 
-			VALUES ('".$pedido['nome-destinatario']."',
+	$Sql = "Insert into c_pedidos (idusuario,nomedestinatario,cep,enderecoentrega,numero,complemento,bairro,cidade,estado,pais,produtos) 
+			VALUES ('".$pedido['idusuario']."',
+					'".$pedido['nome-destinatario']."',
 					'".$pedido['cep']."',
 					'".$pedido['endereco-entrega']."',
 					'".$pedido['numero']."',
