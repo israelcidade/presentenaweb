@@ -39,7 +39,7 @@
 		'total'				=>	 $total
 		);
 	
-	$Sql = "Insert into c_pedidos (idusuario,nomedestinatario,cep,enderecoentrega,numero,complemento,bairro,cidade,estado,pais,produtos,status,total) 
+	$SqlInsert = "Insert into c_pedidos (idusuario,nomedestinatario,cep,enderecoentrega,numero,complemento,bairro,cidade,estado,pais,produtos,status,total) 
 			VALUES ('".$pedido['idusuario']."',
 					'".$pedido['nome-destinatario']."',
 					'".$pedido['cep']."',
@@ -54,6 +54,13 @@
 					'".$pedido['status']."',
 					'".$pedido['total']."')";
 
-	$result = $banco->Execute($Sql);
+	if($result = $banco->Execute($SqlInsert)){
+		$Sql = " select MAX(idpedido) as idpedido FROM c_pedidos ";
+		$result = $banco->Execute($Sql);
+		$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+		$idpedido = $rs['idpedido'];
+		$SqlInsertRastreio = "Insert into c_rastreios (idpedido,codigo) VALUEs ('".$idpedido."',0)";
+		$result = $banco->Execute($SqlInsertRastreio);
+	}
 	echo true;
 ?>

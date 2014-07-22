@@ -26,11 +26,14 @@
 			$num_rows = parent::Linha($result);
 			if($num_rows){
 				while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
+					if($rs['codigo'] == '0'){
+						$codigo = 'Aguarde...';
+					} 
 					$Linha = $Auxilio;
 					$Linha = str_replace('<%KIT%>',$rs['nomekit'],$Linha);
 					$Linha = str_replace('<%VALORTOTAL%>','R$ '.number_format($rs['total'], 2, ',', '.'),$Linha);
 					$Linha = str_replace('<%STATUS%>',$rs['nomestatus'],$Linha);
-					$Linha = str_replace('<%RASTREIO%>',$rs['codigo'],$Linha);
+					$Linha = str_replace('<%RASTREIO%>',$codigo,$Linha);
 					$Pedidos .= $Linha;
 				}
 			}
