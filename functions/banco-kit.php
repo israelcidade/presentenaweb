@@ -22,7 +22,7 @@
 		function MontaDescricao($nomekit){
 			$Auxilio = parent::CarregaHtml('itens/descricao-itens');
 
-			$Sql = "Select P.*, K.*
+			$Sql = "Select P.*,P.nome as nomeproduto, K.*
 					FROM c_produtos P
 					INNER JOIN c_kits K ON P.idproduto = K.idproduto
 					AND K.nome = '".$nomekit."' ";
@@ -31,6 +31,7 @@
 			while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
 				$cont++;
 				$Linha = $Auxilio;
+				$Linha = str_replace('<%NOMEPRODUTO%>',$rs['nomeproduto'],$Linha);
 				$Linha = str_replace('<%DESCRICAO%>',utf8_encode($rs['descricao']),$Linha);
 				$Linha = str_replace('<%ALTURA%>',$rs['altura'],$Linha);
 				$Linha = str_replace('<%LARGURA%>',$rs['largura'],$Linha);
