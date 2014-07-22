@@ -12,7 +12,12 @@
 
 	for ($i=0; $i < sizeof($_SESSION['sacola']); $i++) { 
 		$produtos .= $_SESSION['sacola'][$i].'/';
+		$Sql = "Select valorvenda from c_produtos where idproduto = '".$_SESSION['sacola'][$i]."'";
+		$result = $banco->Execute($Sql);
+		$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+		$total = $total + $rs['valorvenda'];
 	}
+	$total = number_format($total, 2, ',', '.');
 
 	session_start('login');
 	$idusuario = $_SESSION['idusuario'];
@@ -30,10 +35,11 @@
 		'estado' 			=>   $aux[7],
 		'pais' 				=>   $aux[8],
 		'produtos'			=>	 $produtos,
-		'status'			=>	 '1'
+		'status'			=>	 '1',
+		'total'				=>	 $total
 		);
 	
-	$Sql = "Insert into c_pedidos (idusuario,nomedestinatario,cep,enderecoentrega,numero,complemento,bairro,cidade,estado,pais,produtos,status) 
+	$Sql = "Insert into c_pedidos (idusuario,nomedestinatario,cep,enderecoentrega,numero,complemento,bairro,cidade,estado,pais,produtos,status,total) 
 			VALUES ('".$pedido['idusuario']."',
 					'".$pedido['nome-destinatario']."',
 					'".$pedido['cep']."',
@@ -45,7 +51,8 @@
 					'".$pedido['estado']."',
 					'".$pedido['pais']."',
 					'".$pedido['produtos']."',
-					'".$pedido['status']."')";
+					'".$pedido['status']."',
+					'".$pedido['total']."')";
 
 	$result = $banco->Execute($Sql);
 	echo true;
