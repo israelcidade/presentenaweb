@@ -19,13 +19,9 @@
 		}
 	}
 
-	//Lista Itens da Sacola
-	if($Produtos = $banco->ListaProdutosSacola($_SESSION['sacola']) == 'vazio'){
-		$msg = $banco->MontaMsg('atencao',MSG_ERRO_SACOLA_VAZIA);
-	}else{
-		$Produtos = $banco->ListaProdutosSacola($_SESSION['sacola']);
-	}
-
+	
+	$Produtos = $banco->ListaProdutosSacola($_SESSION['sacola']);
+	
 	$Total = $banco->ValorTotal($_SESSION['sacola']);
 
 	#Imprimi valores

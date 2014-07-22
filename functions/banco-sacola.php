@@ -23,7 +23,8 @@
 					$Produtos .= $Linha;
 				}
 			}else{
-				$Produtos = 'vazio'; 
+				$msg = parent::MontaMsg('atencao',MSG_ERRO_SACOLA_VAZIA);
+				$Produtos = "<tr><td colspan=6>".$msg."</td></tr>";
 			}
 			return $Produtos;
 		}
