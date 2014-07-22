@@ -29,10 +29,11 @@
 		'cidade' 			=>   $aux[6],
 		'estado' 			=>   $aux[7],
 		'pais' 				=>   $aux[8],
-		'produtos'			=>	 $produtos
+		'produtos'			=>	 $produtos,
+		'status'			=>	 '1'
 		);
 	
-	$Sql = "Insert into c_pedidos (idusuario,nomedestinatario,cep,enderecoentrega,numero,complemento,bairro,cidade,estado,pais,produtos) 
+	$Sql = "Insert into c_pedidos (idusuario,nomedestinatario,cep,enderecoentrega,numero,complemento,bairro,cidade,estado,pais,produtos,status) 
 			VALUES ('".$pedido['idusuario']."',
 					'".$pedido['nome-destinatario']."',
 					'".$pedido['cep']."',
@@ -43,7 +44,8 @@
 					'".$pedido['cidade']."',
 					'".$pedido['estado']."',
 					'".$pedido['pais']."',
-					'".$pedido['produtos']."')";
+					'".$pedido['produtos']."',
+					'".$pedido['status']."')";
 
 	$result = $banco->Execute($Sql);
 	echo true;
