@@ -2,7 +2,7 @@
     <div class="container">
         <div class="cart-page">
         	<div class="title-wrapper">
-                <h3><img src="<%URLPADRAO%>html/style/images/shopping-icon.png" alt=""/> PEDIDO: 0000</h3>
+                <h3><img src="<%URLPADRAO%>html/style/images/shopping-icon.png" alt=""/> PEDIDO: <%IDPEDIDO%></h3>
             </div>
         </div>
     </div>
@@ -18,14 +18,12 @@
 	        <h3 style="text-transform:none;">Resumo do Pedido:</h3>
             <table width="100%" border="0" class="table text-center spacer-3x">
               <tr>
-                <th scope="col">&nbsp;</th>
-                <th scope="col">NOME DO PRODUTO</th>
-                <th scope="col">VALOR UNITARIO</th>
-                <th scope="col">QUANTIDADE</th>
+                <th scope="col">KIT</th>
                 <th scope="col">VALOR TOTAL</th>
+                <th scope="col">STATUS</th>
                 <th scope="col">COD. RASTREIO</th>
               </tr>
-              <%PEDIDOS%>
+              <%PEDIDO%>
             </table>
             <div class="clearfix"></div>
         </div>
