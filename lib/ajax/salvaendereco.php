@@ -5,10 +5,17 @@
 	$banco = new banco;
 	$banco->Conecta();
 	
-	$endereco = $_POST["endereco"];
+	$pedido = $_POST["endereco"];
+	$produtos = '';
+
+	session_start('sacola');
+
+	for ($i=0; $i < sizeof($_SESSION['sacola']); $i++) { 
+		$produtos .= $_SESSION['sacola'][$i].'/';
+	}
 	
-	$aux = explode('/', $endereco);
-	$endereco = array(
+	$aux = explode('/', $pedido);
+	$pedido = array(
 		'nome-destinatario' =>   $aux[0],
 		'cep' 				=>   $aux[1],
 		'endereco-entrega' 	=>   $aux[2],
@@ -17,11 +24,22 @@
 		'bairro' 			=>   $aux[5],
 		'cidade' 			=>   $aux[6],
 		'estado' 			=>   $aux[7],
-		'pais' 				=>   $aux[8]
+		'pais' 				=>   $aux[8],
+		'produtos'			=>	 $produtos
 		);
-	if($banco->FinalzarCompra($endereco)){
-		return true;
-	}else{
-		return false;
-	}
+	
+	$Sql = "Insert into c_pedidos (nomedestinatario,cep,enderecoentrega,numero,complemento,bairro,cidade,estado,pais,produtos) 
+			VALUES ('".$pedido['nome-destinatario']."',
+					'".$pedido['cep']."',
+					'".$pedido['endereco-entrega']."',
+					'".$pedido['numero']."',
+					'".$pedido['complemento']."',
+					'".$pedido['bairro']."',
+					'".$pedido['cidade']."',
+					'".$pedido['estado']."',
+					'".$pedido['pais']."',
+					'".$pedido['produtos']."')";
+
+	$result = $banco->Execute($Sql);
+	echo true;
 ?>

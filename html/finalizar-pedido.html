@@ -109,6 +109,7 @@
         $.post("<%URLPADRAO%>lib/ajax/salvaendereco.php",
               {endereco:endereco},
                   function(retorno){
+                  
                   if(retorno){
                     $("input[name=shippingAddressPostalCode]").val($("input[name=cep]").val());
                     $("input[name=shippingAddressStreet]").val($("input[name=endereco-entrega]").val());

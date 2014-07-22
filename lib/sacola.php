@@ -7,7 +7,7 @@
 
 	//inicia session sacola pra trabalhar com a sacola
 	session_start('sacola');
-
+	
 	if($this->PaginaAux[0] == 'add'){
 		$msg = $this->MontaMsg('ok',MSG_OK_KIT_ADICIONADO_SACOLA);
 	}
@@ -20,13 +20,10 @@
 	}
 
 	//Lista Itens da Sacola
-	#Carrega o html de Auxilio
-	$Auxilio = $banco->CarregaHtml('itens/lista-produtos-itens');
-
-	if($Produtos = $banco->ListaProdutosSacola($_SESSION['sacola'],$Auxilio) == 'vazio'){
+	if($Produtos = $banco->ListaProdutosSacola($_SESSION['sacola']) == 'vazio'){
 		$msg = $banco->MontaMsg('atencao',MSG_ERRO_SACOLA_VAZIA);
 	}else{
-		$Produtos = $banco->ListaProdutosSacola($_SESSION['sacola'],$Auxilio);
+		$Produtos = $banco->ListaProdutosSacola($_SESSION['sacola']);
 	}
 
 	$Total = $banco->ValorTotal($_SESSION['sacola']);

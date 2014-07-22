@@ -1,7 +1,8 @@
 <?php
 	class bancosacola extends banco{
 		
-		function ListaProdutosSacola($arr,$Auxilio){
+		function ListaProdutosSacola($arr){
+			$Auxilio = $this->CarregaHtml('itens/lista-produtos-itens');
 			if(!empty($arr)){
 				foreach ($arr as $value){
 					$Sql = "Select P.*, F.* from c_produtos P
@@ -29,9 +30,16 @@
 
 		function RemoveSacola($id){
 			session_start('sacola');
-			//$key = array_search($id,$_SESSION['sacola']);
-			//unset($_SESSION['sacola'][$key]);
-			unset($_SESSION['sacola']);
+			$Sql = "Select nome from c_kits where idproduto = '".$id."' ";
+			$result = parent::Execute($Sql);
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			$Sql = "Select * from c_kits where nome = '".$rs['nome']."' ";
+			$result = parent::Execute($Sql);
+
+			while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
+				$i = array_search($rs['idproduto'], $_SESSION['sacola']);
+				unset($_SESSION['sacola'][$i]);
+			}
 			return 'ok';
 		}
 

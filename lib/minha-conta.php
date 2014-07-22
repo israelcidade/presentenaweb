@@ -7,6 +7,8 @@
 
 	if($banco->VerificaSessao()){
 
+		//Busca todas as compras realizadas
+		
 		#Imprimi valores
 		$Conteudo = $banco->CarregaHtml('minha-conta');
 	}else{

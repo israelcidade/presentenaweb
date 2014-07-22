@@ -238,7 +238,7 @@
       			<strong>OK!</strong> ".$msg." </div>";
 			}elseif($tipo == 'atencao'){
 				$flag = "<div class='alert alert-warning' role='alert'>
-      			<strong>Aten&ccedil;&atilde;o!</strong> ".$msg." </div>";
+      			<strong>Aviso!</strong> ".$msg." </div>";
 			}
 			return $flag;
 		}
