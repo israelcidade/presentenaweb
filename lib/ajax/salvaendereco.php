@@ -21,6 +21,9 @@
 	$total = ceil($total);
 	$total = number_format($total, 2, ',', '.');
 
+	//limpa sacola
+	unset($_SESSION['sacola']);
+
 	session_start('login');
 	$idusuario = $_SESSION['idusuario'];
 	
