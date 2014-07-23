@@ -82,12 +82,13 @@
 			include_once("./app/PHPMailer/class.phpmailer.php");
 			include("./app/PHPMailer/class.smtp.php");
 
+			
 			#Carrega classe MAILER
 			$mail = new PHPMailer();
 			// Charset para evitar erros de caracteres
 			$mail->Charset = 'UTF-8';
 			// Dados de quem está enviando o email
-			$mail->From = EMAIL_USER;
+			$mail->From = 'contato@presentenaweb.com.br';
 			$mail->FromName = 'Presente Na Web';
 
 			// Setando o conteudo
@@ -110,7 +111,7 @@
 			$mail->Password = EMAIL_PASS;
 
 			// Setando o endereço de recebimento
-			$mail->AddAddress(EMAIL_RECEB);
+			$mail->AddAddress($usuario['email']);
 	            
 			// Enviando o e-mail para o usuário
 	        if($mail->Send()){
