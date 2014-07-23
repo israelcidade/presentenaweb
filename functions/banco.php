@@ -181,16 +181,17 @@
 			}else{
 				$cart = 'happy';
 				foreach ($_SESSION['sacola'] as $key => $value) {
-				$Sql = "Select * from c_produtos where idproduto = '".$value."'";
-				$result = $this->Execute($Sql);
-				$num_rows = $this->Linha($result);
-				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
-				$i++;
-				$total = $total + $rs['valorvenda'];
-				$total = number_format($total, 2, ',', '.');
+					$Sql = "Select * from c_produtos where idproduto = '".$value."'";
+					$result = $this->Execute($Sql);
+					$num_rows = $this->Linha($result);
+					$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+					$i++;
+					$total = $total + $rs['valorvenda'];
 				}
+				$total = ceil($total);
+				$total = number_format($total+15, 2, ',', '.');
 			}
-			$total = str_replace('.',',',$total);
+			
 			$SaidaHtml = str_replace('<%QUANTIDADE%>',$i,$SaidaHtml);
 			$SaidaHtml = str_replace('<%TOTAL%>',$total,$SaidaHtml);
 			$SaidaHtml = str_replace('<%CART%>',$cart,$SaidaHtml);

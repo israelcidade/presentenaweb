@@ -102,7 +102,8 @@
 			while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
 				$total = $total + $rs['valorvenda'];
 			}
-			$total = number_format($total, 2, ',', '.');
+			$total = ceil($total);
+			$total = (number_format($total+15, 2, ',', '.'));
 			return $total;
 		}
 	}
