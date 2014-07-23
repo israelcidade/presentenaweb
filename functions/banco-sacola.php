@@ -51,15 +51,22 @@
 		}
 
 		function ValorTotal($arr){
-			foreach ($arr as $value) {
-				$Sql = "Select * from c_produtos where idproduto = '".$value."' ";
-				$result = parent::Execute($Sql);
-				$num_rows = parent::Linha($result);
-				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
-				$total = $total + $rs['valorvenda'];
-			}
-			$total = ceil($total);
-			$total = number_format($total+15, 2, ',', '.');
+			if(!empty($arr)){
+				foreach ($arr as $value) {
+					$Sql = "Select * from c_produtos where idproduto = '".$value."' ";
+					$result = parent::Execute($Sql);
+					$num_rows = parent::Linha($result);
+					if($num_rows){
+						$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+						$total = $total + $rs['valorvenda'];
+						
+					}
+				}
+				$total = ceil($total);
+				$total = number_format($total+15, 2, ',', '.');
+			}else{
+				$total = '000,00';
+			}	
 			return $total;
 		}
 
