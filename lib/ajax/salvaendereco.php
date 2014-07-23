@@ -15,8 +15,10 @@
 		$Sql = "Select valorvenda from c_produtos where idproduto = '".$value."'";
 		$result = $banco->Execute($Sql);
 		$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+		
 		$total = $total + $rs['valorvenda'];
 	}
+	$total = ceil($total);
 	$total = number_format($total, 2, ',', '.');
 
 	session_start('login');
