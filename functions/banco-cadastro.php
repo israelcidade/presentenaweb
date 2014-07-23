@@ -98,7 +98,7 @@
 				Bem Vindo ao Presente na Web!<br>
 				Agora você ja pode comprar em nosso site!<br>
 				Basta ativar a sua conta clicando no link abaixo e logar no site!<br><br>
-				<a href='localhost/presentenaweb/cadastro/codigo/$codigo'>Ativar Conta</a><br><br>
+				<a href='".UrlPadrao."cadastro/codigo/$codigo'>Ativar Conta</a><br><br>
 				Boas Compras ! :)
 			");
 	            
