@@ -9,18 +9,23 @@
 
 		session_start('sacola');
 
-		//foreach ($_POST as $key => $value) {
+		if(empty($_SESSION['sacola'])){
+			$banco->RedirecionaPara('sacola');
+		}else{
+			//foreach ($_POST as $key => $value) {
 			//$pedido[$key] = strip_tags(trim(addslashes($_POST[$key])));
-		//}
+			//}
 		
-		$ItensPagSeguro          = $banco->MontaItens($_SESSION['sacola']);
-		$ItensPagSeguroComprador = $banco->MontaItensComprador($_SESSION['email']);
+			$ItensPagSeguro          = $banco->MontaItens($_SESSION['sacola']);
+			$ItensPagSeguroComprador = $banco->MontaItensComprador($_SESSION['email']);
+			
+			#Imprimi valores
+			$Conteudo = $banco->CarregaHtml('finalizar-pedido');
+			$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);
+			$Conteudo = str_replace('<%ITENSPAGSEGURO%>', $ItensPagSeguro, $Conteudo);
+			$Conteudo = str_replace('<%ITENSPAGSEGUROCOMPRADOR%>', $ItensPagSeguroComprador, $Conteudo);
+		}
 		
-		#Imprimi valores
-		$Conteudo = $banco->CarregaHtml('finalizar-pedido');
-		$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);
-		$Conteudo = str_replace('<%ITENSPAGSEGURO%>', $ItensPagSeguro, $Conteudo);
-		$Conteudo = str_replace('<%ITENSPAGSEGUROCOMPRADOR%>', $ItensPagSeguroComprador, $Conteudo);
 	}else{
 		$banco->RedirecionaPara('cadastro/acesso-negado');
 	}
