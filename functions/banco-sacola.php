@@ -10,8 +10,8 @@
 							INNER JOIN c_fotos F 
 							ON P.idproduto = F.idproduto
 							Where F.principal = '1'
-							And p.idproduto = '".$value."' ";
-
+							And P.idproduto = '".$value."' ";
+							
 					$result = parent::Execute($Sql);
 					$num_rows = parent::Linha($result);
 					$rs = mysql_fetch_array($result , MYSQL_ASSOC);
@@ -20,7 +20,7 @@
 					$Linha = $Auxilio;
 
 					$Linha = str_replace('<%ID%>',$rs['idproduto'],$Linha);
-					$Linha = str_replace('<%NOME%>',utf8_encode($rs['nome']),$Linha);
+					$Linha = str_replace('<%NOME%>',$rs['nome'],$Linha);
 					$Linha = str_replace('<%VALOTOTAL%>',$valorKit,$Linha);
 					$Linha = str_replace('<%URLPADRAO%>',UrlPadrao,$Linha);
 					$Linha = str_replace('<%CAMINHO%>',$rs['caminho'],$Linha);
@@ -76,10 +76,8 @@
 				INNER JOIN c_kits K ON P.idproduto = K.idproduto
 				AND P.idproduto = '".$value."'
 			";
-			
 			$result = parent::Execute($Sql);
 			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
-
 			return $rs['valor'];
 		}
 	}
