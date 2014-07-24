@@ -60,14 +60,18 @@
 					'".$pedido['status']."',
 					'".$pedido['total']."',
 					'".$pedido['reference']."')";
-
-	if($result = $banco->Execute($SqlInsert)){
-		$Sql = " select MAX(idpedido) as idpedido FROM c_pedidos ";
-		$result = $banco->Execute($Sql);
-		$rs = mysql_fetch_array($result , MYSQL_ASSOC);
-		$idpedido = $rs['idpedido'];
-		$SqlInsertRastreio = "Insert into c_rastreios (idpedido,codigo) VALUEs ('".$idpedido."',0)";
-		$result = $banco->Execute($SqlInsertRastreio);
+	
+	if($produtos != ''){
+		if($result = $banco->Execute($SqlInsert)){
+			$Sql = " select MAX(idpedido) as idpedido FROM c_pedidos ";
+			$result = $banco->Execute($Sql);
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			$idpedido = $rs['idpedido'];
+			$SqlInsertRastreio = "Insert into c_rastreios (idpedido,codigo) VALUEs ('".$idpedido."',0)";
+			$result = $banco->Execute($SqlInsertRastreio);
+		}
+	}else{
+		echo true;
 	}
 	echo true;
 ?>
