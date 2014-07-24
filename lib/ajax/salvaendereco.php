@@ -39,12 +39,13 @@
 		'cidade' 			=>   $aux[6],
 		'estado' 			=>   $aux[7],
 		'pais' 				=>   $aux[8],
+		'reference' 		=>   $aux[9],
 		'produtos'			=>	 $produtos,
 		'status'			=>	 '1',
 		'total'				=>	 $total
 		);
 	
-	$SqlInsert = "Insert into c_pedidos (idusuario,nomedestinatario,cep,enderecoentrega,numero,complemento,bairro,cidade,estado,pais,produtos,status,total) 
+	$SqlInsert = "Insert into c_pedidos (idusuario,nomedestinatario,cep,enderecoentrega,numero,complemento,bairro,cidade,estado,pais,produtos,status,total,referencia) 
 			VALUES ('".$pedido['idusuario']."',
 					'".$pedido['nome-destinatario']."',
 					'".$pedido['cep']."',
@@ -57,7 +58,8 @@
 					'".$pedido['pais']."',
 					'".$pedido['produtos']."',
 					'".$pedido['status']."',
-					'".$pedido['total']."')";
+					'".$pedido['total']."',
+					'".$pedido['reference']."')";
 
 	if($result = $banco->Execute($SqlInsert)){
 		$Sql = " select MAX(idpedido) as idpedido FROM c_pedidos ";

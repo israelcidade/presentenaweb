@@ -43,5 +43,17 @@
 			
 			return $Produtos;
 		}
+
+		function MontaReferencia(){
+			while($codigo = parent::GeraCodigo(10,true,true,false)){
+				$Sql = "Select referencia from c_pedidos where referencia = '".$codigo."'";
+				$result = parent::Execute($Sql);
+				$num_rows = parent::Linha($result);
+				if($num_rows == '0'){
+					break;
+				}
+			}
+			return $codigo;
+		}
 	}
 ?>

@@ -46,10 +46,10 @@
                 <td><input class="input-group" type="text" name="pais" value="Brasil" readonly="true"></td>
               </tr>
             </table>
-            
-            <form method="post" target="pagseguro"  
-                 action="https://pagseguro.uol.com.br/v2/checkout/payment.html" 
-                 onsubmit="PagSeguroLightbox(this); return false;">  
+            <!-- onsubmit="PagSeguroLightbox(this); return false;"> -->
+            <form method="post"
+                 action="https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html" 
+                  
           
                 <!-- Campos obrigatórios -->  
                 <input name="receiverEmail" type="hidden" value="israelcbj@gmail.com">  
@@ -59,7 +59,7 @@
                 <%ITENSPAGSEGURO%>
           
                 <!-- Código de referência do pagamento no seu sistema (opcional) -->  
-                <input name="reference" type="hidden" value="123">
+                <input name="reference" type="hidden" value="<%ITENSPAGSEGUROREFERENCE%>">
 
                 <!-- Informações de frete (opcionais) -->  
                 <input name="shippingType" type="hidden" value="1"> 
@@ -104,9 +104,10 @@
                       $("input[name=bairro]").val()+'/'+
                       $("input[name=cidade]").val()+'/'+
                       $("input[name=estado]").val()+'/'+
-                      $("input[name=pais]").val()
+                      $("input[name=pais]").val()+'/'+
+                      $("input[name=reference]").val()
                     ;
-        //Salvar Dados de Endereco no Banco e chamar o pagseguro!
+        //Salvar Dados de Endereco no Banco e chama o pagseguro!
         $.post("<%URLPADRAO%>lib/ajax/salvaendereco.php",
               {endereco:endereco},
                   function(retorno){
@@ -127,5 +128,5 @@
     }//fecha else
   }//fecha function
 </script>
-<script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+<script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
 

@@ -18,12 +18,14 @@
 		
 			$ItensPagSeguro          = $banco->MontaItens($_SESSION['sacola']);
 			$ItensPagSeguroComprador = $banco->MontaItensComprador($_SESSION['email']);
+			$ItensPagSeguroReference = $banco->MontaReferencia();
 			
 			#Imprimi valores
 			$Conteudo = $banco->CarregaHtml('finalizar-pedido');
 			$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);
 			$Conteudo = str_replace('<%ITENSPAGSEGURO%>', $ItensPagSeguro, $Conteudo);
 			$Conteudo = str_replace('<%ITENSPAGSEGUROCOMPRADOR%>', $ItensPagSeguroComprador, $Conteudo);
+			$Conteudo = str_replace('<%ITENSPAGSEGUROREFERENCE%>', $ItensPagSeguroReference, $Conteudo);
 		}
 		
 	}else{

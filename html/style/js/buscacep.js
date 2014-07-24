@@ -1,4 +1,5 @@
 function buscacep(){
+
 	var cep = $("input[name=cep]").val();
 	if(cep.length < 9 || cep == ''){
 		alert("Cep inválido");
