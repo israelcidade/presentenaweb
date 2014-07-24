@@ -11,6 +11,9 @@
 			//$teste = 'http://localhost/presentenaweb/minha-conta/check/?id_pagseguro=F498A827-7870-42D7-B3A6-777F0A87241A';
 			$aux = explode('=',$this->PaginaAux[1]);
 			$codigo_pagseguro = $aux[1];
+
+			$idpedido = $banco->UltimoPedido();
+			$banco->InsereReferencia($idpedido,$codigo_pagseguro);
 		}	
 		
 

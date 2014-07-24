@@ -27,5 +27,18 @@
 			}
 			return $Produtos;
 		}
+
+		function UltimoPedido(){
+			$Sql = "SELECT max(idpedido) as id FROM c_pedidos";
+			$result = parent::Execute($Sql);
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			return $rs['id'];
+		}
+
+		function InsereReferencia($idpedido,$codigo){
+			$Sql = "Insert Into c_referencia (idpedido,codigo) VALUES ('".$idpedido."','".$codigo."')";
+			$result = parent::Execute($Sql);
+			return true;
+		}
 	}
 ?>
