@@ -707,3 +707,7 @@ footer .copyright-wrap .container{
 	width: 75%;
 	margin-left: auto;
 }
+
+.copyright-wrap p{
+	font-size: 11px;
+}
